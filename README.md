@@ -118,14 +118,14 @@ You have to create ```LUTs.bundle``` and add all your LUT Photo(Re-name your LUT
 ## Stickers 🤌
 ### Remote
 You need to pass an array of image urls to the sticker parameter in [options](#options)
-[Example](https://github.com/baronha/react-native-photo-editor/blob/dev/example/src/assets/data/stickers.json): 
+[Example](https://github.com/baronha/react-native-photo-editor/blob/dev/example/src/assets/data/stickers.json):
 ```
 [
   "https://cdn-icons-png.flaticon.com/512/5272/5272912.png",
   "https://cdn-icons-png.flaticon.com/512/5272/5272913.png",
   "https://cdn-icons-png.flaticon.com/512/5272/5272916.png",
   ...
-] 
+]
 ```
 ### Local
 
@@ -135,9 +135,9 @@ You have to create ```Stickers.bundle``` and add all your sticker into ```Sticke
     <br>
     <br>
 ![](resources/sticker_tutorial_ios.png)
-  
+
 #### Android
-You have to create ```Stickers``` folder inside ```assets``` folder. Then drag or copy all sticker in to ```Sticker``` folder. 
+You have to create ```Stickers``` folder inside ```assets``` folder. Then drag or copy all sticker in to ```Sticker``` folder.
   [See detail](https://github.com/baronha/react-native-photo-editor/tree/master/example/android/app/src/main/assets/Stickers)
   <br>
    <br>
@@ -155,6 +155,13 @@ or [pull request](https://github.com/baronha/react-native-photo-editor/pulls). B
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## Contributors ✨
+
+Thanks go to these wonderful people:
+
+<!-- readme: collaborators,contributors -start -->
+<!-- readme: collaborators,contributors -end -->
 
 ## License
 
