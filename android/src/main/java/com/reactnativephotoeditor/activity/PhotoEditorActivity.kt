@@ -84,7 +84,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     //intern
     val value = intent.extras
-    val valueContext = intent.context
+    val valueContext = intent
     val path = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
