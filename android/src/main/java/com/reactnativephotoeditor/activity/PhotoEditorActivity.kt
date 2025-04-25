@@ -105,7 +105,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     mCropTools = ImageCropViewManager()
-    mCropTools!!.createViewInstance(this)
+    // mCropTools!!.createViewInstance(this)
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
@@ -209,7 +209,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    mCropTools = findViewById(R.id.photoEditorView)
+    // mCropTools = findViewById(R.id.photoEditorView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
