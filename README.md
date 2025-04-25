@@ -65,6 +65,8 @@ This lib is for personal use, so if you customize your style or change something
 
 ```sh
 yarn add @baronha/react-native-photo-editor
+Android: Installation is automatic.
+iOS: Add pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools' in your podfile below the line use_native_modules!. Then run pod installin iOS folder.
 ```
 
 ### iOS
