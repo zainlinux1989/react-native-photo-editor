@@ -20,7 +20,7 @@ class ImageCropViewManager
 // (
 //     private val reactContext: ReactApplicationContext
 // )
- : AppCompatActivity<CropImageView>() {
+ : AppCompatActivity() {
 //  : SimpleViewManager<CropImageView>() {
         companion object {
         const val REACT_CLASS = "CropView"
