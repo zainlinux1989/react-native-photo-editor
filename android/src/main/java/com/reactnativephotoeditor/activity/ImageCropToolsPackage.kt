@@ -1,4 +1,4 @@
-package com.parsempo.ImageCropTools
+package com.reactnativephotoeditor.ImageCropTools
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
