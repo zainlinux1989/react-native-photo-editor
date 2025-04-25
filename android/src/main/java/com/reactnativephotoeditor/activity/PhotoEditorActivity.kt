@@ -41,7 +41,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.reactnativephotoeditor.R
 import com.reactnativephotoeditor.activity.StickerFragment.StickerListener
-import com.reactnativephotoeditor.ImageCropTools.ImageCropToolsPackage
+import com.reactnativephotoeditor.activity.ImageCropViewManager
 import com.reactnativephotoeditor.activity.constant.ResponseCode
 import com.reactnativephotoeditor.activity.filters.FilterListener
 import com.reactnativephotoeditor.activity.filters.FilterViewAdapter
@@ -64,7 +64,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mPropertiesBSFragment: PropertiesBSFragment? = null
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
-  private var mCropTools: ImageCropToolsPackage? = null
+  private var mCropTools: ImageCropViewManager? = null
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -104,8 +104,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //    val d = Drawable.createFromStream(stream, null)
     mStickerFragment!!.setData(stickers)
 
-    mCropTools = ImageCropToolsPackage()
-    mCropTools!!.createViewManagers(this)
+    mCropTools = ImageCropViewManager()
+    mCropTools!!.createViewInstance(this)
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
@@ -209,6 +209,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
+    mCropTools = findViewById(R.id.rvConstraintTools)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
@@ -384,7 +385,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       }
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
       ToolType.CROP -> {
-        mCropTools!!.createViewManagers(this)
+        mCropTools!!.createViewInstance(this)
       }
     }
   }

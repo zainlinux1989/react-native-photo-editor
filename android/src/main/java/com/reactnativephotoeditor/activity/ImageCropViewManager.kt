@@ -1,4 +1,4 @@
-package com.reactnativephotoeditor.ImageCropTools
+package com.reactnativephotoeditor.activity
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -15,9 +15,11 @@ import com.facebook.react.uimanager.events.RCTEventEmitter
 import java.io.File
 import java.util.*
 
-class ImageCropViewManager(
-    private val reactContext: ReactApplicationContext
-) : SimpleViewManager<CropImageView>() {
+class ImageCropViewManager
+// (
+//     private val reactContext: ReactApplicationContext
+// )
+ : SimpleViewManager<CropImageView>() {
     companion object {
         const val REACT_CLASS = "CropView"
         const val ON_IMAGE_SAVED = "onImageSaved"
@@ -30,7 +32,8 @@ class ImageCropViewManager(
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    override fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
+    // override 
+    fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
