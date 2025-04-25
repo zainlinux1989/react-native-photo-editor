@@ -2,6 +2,7 @@ package com.reactnativephotoeditor.ImageCropTools
 
 import android.graphics.Bitmap
 import android.net.Uri
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
