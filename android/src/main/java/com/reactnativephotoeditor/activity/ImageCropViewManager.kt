@@ -1,6 +1,7 @@
 package com.reactnativephotoeditor.activity
 
 import android.graphics.Bitmap
+import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.Arguments
@@ -19,7 +20,7 @@ class ImageCropViewManager
 // (
 //     private val reactContext: ReactApplicationContext
 // )
- : CropImageView() {
+ : AppCompatActivity<CropImageView>() {
 //  : SimpleViewManager<CropImageView>() {
         companion object {
         const val REACT_CLASS = "CropView"
