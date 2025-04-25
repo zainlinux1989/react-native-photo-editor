@@ -36,8 +36,7 @@ class ImageCropViewManager
     }
 
     // override PhotoEditorView
-    fun createViewInstance(reactContext: PhotoEditorView): CropImageView {
-    // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
+    fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
