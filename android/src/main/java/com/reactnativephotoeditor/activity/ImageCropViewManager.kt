@@ -55,25 +55,29 @@ class ImageCropViewManager
         return view
     }
 
-    override fun getName(): String {
+    // override 
+    fun getName(): String {
         return REACT_CLASS
     }
 
-    override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any> {
+    // override 
+    fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any> {
         return MapBuilder.of(
                 ON_IMAGE_SAVED,
                 MapBuilder.of("registrationName", ON_IMAGE_SAVED)
         )
     }
 
-    override fun getCommandsMap(): MutableMap<String, Int> {
+    // override 
+    fun getCommandsMap(): MutableMap<String, Int> {
         return MapBuilder.of(
                 SAVE_IMAGE_COMMAND_NAME, SAVE_IMAGE_COMMAND,
                 ROTATE_IMAGE_COMMAND_NAME, ROTATE_IMAGE_COMMAND
         )
     }
 
-    override fun receiveCommand(root: CropImageView, commandId: Int, args: ReadableArray?) {
+    // override 
+    fun receiveCommand(root: CropImageView, commandId: Int, args: ReadableArray?) {
         when (commandId) {
             SAVE_IMAGE_COMMAND -> {
                 val preserveTransparency = args?.getBoolean(0) ?: false
