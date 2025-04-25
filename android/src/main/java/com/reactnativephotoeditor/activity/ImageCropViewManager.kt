@@ -27,7 +27,7 @@ class ImageCropViewManager: SimpleViewManager<CropImageView>() {
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    override fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
+    override fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
