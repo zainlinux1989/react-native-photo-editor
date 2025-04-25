@@ -31,10 +31,11 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
     val path = options?.getString("path")
     val stickers = options?.getArray("stickers") as ReadableArray
+    val contextR = reactContext as ReactApplicationContext
 
     intent.putExtra("path", path)
     intent.putExtra("stickers", stickers.toArrayList())
-    intent.putExtra("context", reactApplicationContext)
+    intent.putExtra("context", contextR)
     
 
     activity.startActivityForResult(intent, EDIT_SUCCESSFUL)
