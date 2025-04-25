@@ -34,6 +34,8 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
     intent.putExtra("path", path)
     intent.putExtra("stickers", stickers.toArrayList())
+    intent.putExtra("context", reactApplicationContext)
+    
 
     activity.startActivityForResult(intent, EDIT_SUCCESSFUL)
   }
