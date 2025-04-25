@@ -7,7 +7,7 @@ import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.common.MapBuilder
-import com.facebook.react.uimanager.SimpleViewManager
+// import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
@@ -19,8 +19,9 @@ class ImageCropViewManager
 // (
 //     private val reactContext: ReactApplicationContext
 // )
- : SimpleViewManager<CropImageView>() {
-    companion object {
+ : CropImageView() {
+//  : SimpleViewManager<CropImageView>() {
+        companion object {
         const val REACT_CLASS = "CropView"
         const val ON_IMAGE_SAVED = "onImageSaved"
         const val SOURCE_URL_PROP = "sourceUrl"
