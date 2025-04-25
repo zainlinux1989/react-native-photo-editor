@@ -13,6 +13,7 @@ import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
+import ja.burhanrashid52.photoeditor.PhotoEditorView
 import java.io.File
 import java.util.*
 
@@ -20,7 +21,7 @@ class ImageCropViewManager
 // (
 //     private val reactContext: ReactApplicationContext
 // )
- : AppCompatActivity() {
+ : PhotoEditorView() {
 //  : SimpleViewManager<CropImageView>() {
         companion object {
         const val REACT_CLASS = "CropView"
