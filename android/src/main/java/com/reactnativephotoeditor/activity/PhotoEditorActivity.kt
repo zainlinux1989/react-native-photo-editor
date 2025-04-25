@@ -84,6 +84,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     //intern
     val value = intent.extras
+    val valueContext = intent.context
     val path = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
@@ -105,7 +106,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     mCropTools = ImageCropViewManager()
-    mCropTools!!.createViewInstance(ContextCompat)
+    mCropTools!!.createViewInstance(valueContext)
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
