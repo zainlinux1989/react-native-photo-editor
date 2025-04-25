@@ -31,7 +31,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
     val path = options?.getString("path")
     val stickers = options?.getArray("stickers") as ReadableArray
-    val contextR1 = options?.Bundle as ReactApplicationContext
+    val contextR1 = options?.getBundle("context") as ReactApplicationContext
     // val contextR = activity as ReactApplicationContext
 
     intent.putExtra("path", path)
