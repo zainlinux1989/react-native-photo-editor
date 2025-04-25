@@ -35,8 +35,8 @@ class ImageCropViewManager
     }
 
     // override 
-    fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
-    // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
+    // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
+    fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
