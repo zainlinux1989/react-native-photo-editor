@@ -209,7 +209,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    // mCropTools = findViewById(R.id.rvConstraintTools)
+    mCropTools = findViewById(R.id.photoEditorView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
@@ -385,8 +385,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       }
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
       ToolType.CROP -> {
+        mTxtCurrentTool!!.setText(R.string.corp_mode)
         // mCropTools!!.createViewInstance(this)
-        mCropTools!!.getCommandsMap()
+        // mCropTools!!.getCommandsMap()
       }
     }
   }
