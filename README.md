@@ -145,7 +145,7 @@ You have to create ```Stickers``` folder inside ```assets``` folder. Then drag o
    <br>
   ![](resources/sticker_tutorial_android.png)
 ## To Do
-
+  https://github.com/hhunaid/react-native-image-crop-tools/tree/master
 - [ ] Lut Color in android.
 - [ ] Crop Image in android.
 
