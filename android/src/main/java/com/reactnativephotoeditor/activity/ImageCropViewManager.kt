@@ -13,6 +13,7 @@ import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
+import ja.burhanrashid52.photoeditor.PhotoEditorView
 import java.io.File
 import java.util.*
 
@@ -34,8 +35,9 @@ class ImageCropViewManager
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    // override 
-    fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
+    // override PhotoEditorView
+    fun createViewInstance(reactContext: PhotoEditorView): CropImageView {
+    // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
