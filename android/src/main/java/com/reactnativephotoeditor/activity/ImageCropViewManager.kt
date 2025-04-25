@@ -15,7 +15,9 @@ import com.facebook.react.uimanager.events.RCTEventEmitter
 import java.io.File
 import java.util.*
 
-class ImageCropViewManager: SimpleViewManager<CropImageView>() {
+class ImageCropViewManager(
+    private val reactContext: ReactApplicationContext
+) : SimpleViewManager<CropImageView>() {
     companion object {
         const val REACT_CLASS = "CropView"
         const val ON_IMAGE_SAVED = "onImageSaved"
@@ -28,7 +30,7 @@ class ImageCropViewManager: SimpleViewManager<CropImageView>() {
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    override fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
+    override fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
