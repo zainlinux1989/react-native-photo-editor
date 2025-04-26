@@ -50,11 +50,11 @@ class ImageCropViewManager
                 map.putInt("y", result.cropRect!!.top)
                 map.putInt("width", result.cropRect!!.width())
                 map.putInt("height", result.cropRect!!.height())
-                reactContext.getJSModule(RCTEventEmitter::class.java)?.receiveEvent(
-                        view.id,
-                        ON_IMAGE_SAVED,
-                        map
-                )
+                // reactContext.getJSModule(RCTEventEmitter::class.java)?.receiveEvent(
+                //         view.id,
+                //         ON_IMAGE_SAVED,
+                //         map
+                // )
             }
         }
         return view
