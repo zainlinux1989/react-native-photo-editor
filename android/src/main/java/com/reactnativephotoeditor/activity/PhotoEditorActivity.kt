@@ -108,7 +108,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     mCropTools = ImageCropViewManager()
-    mCropTools!!.createViewInstance(valueContext)
+    mCropTools!!.createViewInstance()
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
