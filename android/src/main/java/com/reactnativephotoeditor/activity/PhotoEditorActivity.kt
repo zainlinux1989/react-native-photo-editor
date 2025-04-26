@@ -84,7 +84,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     //intern
     val value = intent.extras
-    val valueContext = value?.getBooleanExtra("context")
+    // val valueContext = value?.getBooleanExtra("context")
+    val valueContext = ThemedReactContext(context, R.style.BlueButtonStyle)
+    // val valueContext = value?.getBooleanExtra("context")
     val path = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
