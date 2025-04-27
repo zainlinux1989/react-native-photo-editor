@@ -47,7 +47,7 @@ class ImageCropViewManager
             "TEST_TAG",
             "reactContext: more verbose than DEBUG logs _______________" 
           )        
-          val reactContext = getReactApplicationContext()  
+          val reactContext = getApplicationContext()  
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
