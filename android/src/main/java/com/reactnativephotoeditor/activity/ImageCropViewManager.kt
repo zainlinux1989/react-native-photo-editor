@@ -41,7 +41,7 @@ class ImageCropViewManager
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
-        val reactContext = context.getCurrentActivity()   
+        val reactContext = context  
         // val reactContext = path 
         Log.d(
             "TEST_TAG",
