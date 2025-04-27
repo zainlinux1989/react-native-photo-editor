@@ -19,10 +19,12 @@ import java.io.File
 import java.util.*
 
 class ImageCropViewManager
-// (
-//     private val reactContext: ReactApplicationContext
-// )
- : AppCompatActivity() {
+(
+    // private val 
+    reactContext: ReactApplicationContext
+)
+ : AppCompatActivity(reactContext) {
+    // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
         const val REACT_CLASS = "CropView"
@@ -45,13 +47,13 @@ class ImageCropViewManager
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
 
         // val reactContext = path 
-        val value = intent
+        val value = reactContext
         Log.d(
             "TEST_TAG",
             "reactContext: more verbose than DEBUG logs 11______[$value]_________" 
           )        
-          val reactContext = getApplicationContext()  
-        val view =  CropImageView(reactContext)
+        //   val reactContext = getApplicationContext()  
+        val view =  CropImageView(context)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
                 val map = Arguments.createMap()
