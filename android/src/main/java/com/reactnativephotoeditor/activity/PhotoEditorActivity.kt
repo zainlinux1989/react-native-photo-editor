@@ -98,7 +98,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //      print("stick: $stickers")
 //    }
 Log.d(
-  'TEST_TAG',
+  "TEST_TAG",
   "Verbose: more verbose than DEBUG logs _______________"
 )
     mPropertiesBSFragment = PropertiesBSFragment()
