@@ -65,7 +65,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mPropertiesBSFragment: PropertiesBSFragment? = null
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
-  private var mCropTools: ImageCropViewManager? = null
+  // private var mCropTools: ImageCropViewManager? = null
+  private var mCropTools: ConstraintLayout? = null
   private var mCropToolsPath: String? = null
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
@@ -218,7 +219,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    mCropTools = findViewById(R.id.cropImageView)
+    mCropTools = findViewById(R.id.rootView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
