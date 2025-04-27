@@ -3,6 +3,7 @@ package com.reactnativephotoeditor.activity
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
+import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
@@ -40,9 +41,12 @@ class ImageCropViewManager
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
-        val reactContext = context.currentActivity   
+        val reactContext = context.getCurrentActivity()   
         // val reactContext = path 
-        
+        Log.d(
+            "TEST_TAG",
+            "reactContext: more verbose than DEBUG logs ______[$reactContext]_________" 
+          )        
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
