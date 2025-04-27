@@ -3,7 +3,7 @@ package com.reactnativephotoeditor.activity
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
-import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.reactApplicationContext;
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
