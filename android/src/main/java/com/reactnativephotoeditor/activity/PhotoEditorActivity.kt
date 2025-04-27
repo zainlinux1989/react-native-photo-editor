@@ -66,6 +66,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
   private var mCropTools: ImageCropViewManager? = null
+  private var mCropToolsPath: String = null
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -86,21 +87,21 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     //intern
     val value = intent.extras
     // val valueContext = value?.getBooleanExtra("context")
-    val valueContext = applicationContext
+    // val valueContext = applicationContext
     // val valueContext = value?.getBooleanExtra("context")
     val path = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
         assets.list("Stickers")!!
           .map { item -> "/android_asset/Stickers/$item" }) as ArrayList<String>
-//    println("stickers: $stickers ${stickers.size}")
-//    for (stick in stickers) {
-//      print("stick: $stickers")
-//    }
-Log.d(
-  "TEST_TAG",
-  "Verbose: more verbose than DEBUG logs ______[$value]_________"
-)
+  //    println("stickers: $stickers ${stickers.size}")
+  //    for (stick in stickers) {
+  //      print("stick: $stickers")
+  //    }
+  Log.d(
+    "TEST_TAG",
+    "Verbose: more verbose than DEBUG logs ______[$value]_________" 
+  )
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
 
@@ -112,6 +113,7 @@ Log.d(
     mStickerFragment!!.setData(stickers)
 
     mCropTools = ImageCropViewManager()
+    mCropToolsPath = value?.getString("path")
     // mCropTools!!.createViewInstance()
 
     mShapeBSFragment = ShapeBSFragment()
@@ -216,7 +218,7 @@ Log.d(
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    // mCropTools = findViewById(R.id.cropTools)
+    mCropTools = findViewById(R.id.cropImageView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
@@ -393,7 +395,7 @@ Log.d(
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
       ToolType.CROP -> {
         mTxtCurrentTool!!.setText(R.string.corp_mode)
-        mCropTools!!.createViewInstance()
+        mCropTools!!.createViewInstance(mCropToolsPath)
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
