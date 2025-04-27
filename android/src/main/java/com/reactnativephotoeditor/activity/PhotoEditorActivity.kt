@@ -99,7 +99,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //    }
 Log.d(
   "TEST_TAG",
-  "Verbose: more verbose than DEBUG logs _______________"
+  "Verbose: more verbose than DEBUG logs ______[$value]_________"
 )
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
