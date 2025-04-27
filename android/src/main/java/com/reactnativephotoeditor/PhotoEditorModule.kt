@@ -2,6 +2,7 @@ package com.reactnativephotoeditor
 
 import android.app.Activity
 import android.content.Intent
+import android.util.Log
 import com.facebook.react.bridge.*
 import com.reactnativephotoeditor.activity.PhotoEditorActivity
 import com.reactnativephotoeditor.activity.constant.ResponseCode
@@ -12,6 +13,7 @@ enum class ERROR_CODE {
 
 class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
   private val context = reactApplicationContext;
+
   private val EDIT_SUCCESSFUL = 1
   private var promise: Promise? = null
   override fun getName(): String {
@@ -28,7 +30,10 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
     val intent = Intent(context, PhotoEditorActivity::class.java)
     context.addActivityEventListener(mActivityEventListener)
-
+    Log.d(
+      "TEST_TAG",
+      "Verbose: more verbose than DEBUG logs ______[$context]_________" 
+    )
     val path = options?.getString("path")
     val stickers = options?.getArray("stickers") as ReadableArray
     // val contextR1 = options?.getOrImplicitDefault("context") as ReactApplicationContext
