@@ -1,5 +1,6 @@
 package com.reactnativephotoeditor.activity
 
+import android.content.Context
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
