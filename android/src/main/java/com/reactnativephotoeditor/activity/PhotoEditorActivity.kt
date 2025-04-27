@@ -395,7 +395,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
       ToolType.CROP -> {
         mTxtCurrentTool!!.setText(R.string.corp_mode)
-        mCropTools!!.createViewInstance(mCropToolsPath)
+        // mCropTools!!.createViewInstance(mCropToolsPath)
+        mCropTools!!.createViewInstance()
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }

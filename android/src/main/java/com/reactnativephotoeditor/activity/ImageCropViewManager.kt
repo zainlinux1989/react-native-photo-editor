@@ -34,14 +34,17 @@ class ImageCropViewManager
         const val SAVE_IMAGE_COMMAND_NAME = "saveImage"
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
-
+    private val context = reactApplicationContext;
     // override PhotoEditorView
+    fun createViewInstance(): CropImageView {
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
-    fun createViewInstance(path: String): CropImageView {
+    // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
         // val reactContext = reactApplicationContext.currentActivity   
-        val reactContext = path 
-        val view =  CropImageView(reactContext)
+        // val reactContext = path 
+        
+        // val view =  CropImageView(reactContext)
+        val view =  CropImageView(context)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
                 val map = Arguments.createMap()
