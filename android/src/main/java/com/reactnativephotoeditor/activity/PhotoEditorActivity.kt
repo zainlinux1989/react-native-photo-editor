@@ -48,6 +48,7 @@ import com.reactnativephotoeditor.activity.filters.FilterViewAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
+
 import ja.burhanrashid52.photoeditor.*
 import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
@@ -96,7 +97,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //    for (stick in stickers) {
 //      print("stick: $stickers")
 //    }
-
+Log.d(
+  'TEST_TAG',
+  "Verbose: more verbose than DEBUG logs _______________"
+)
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
 
@@ -388,7 +392,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       }
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
       ToolType.CROP -> {
-        // mTxtCurrentTool!!.setText(R.string.corp_mode)
+        mTxtCurrentTool!!.setText(R.string.corp_mode)
         mCropTools!!.createViewInstance()
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
