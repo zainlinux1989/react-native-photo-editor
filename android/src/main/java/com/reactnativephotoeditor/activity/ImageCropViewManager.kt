@@ -41,12 +41,13 @@ class ImageCropViewManager
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
-        val reactContext = getApplicationContext()  
+
         // val reactContext = path 
         Log.d(
             "TEST_TAG",
             "reactContext: more verbose than DEBUG logs _______________" 
           )        
+          val reactContext = getReactApplicationContext()  
         val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
