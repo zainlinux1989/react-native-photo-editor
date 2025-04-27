@@ -86,6 +86,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     //intern
     val value = intent.extras
+    val value1 = intent
     // val valueContext = value?.getBooleanExtra("context")
     // val valueContext = applicationContext
     // val valueContext = value?.getBooleanExtra("context")
@@ -100,7 +101,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   //    }
   Log.d(
     "TEST_TAG",
-    "Verbose: more verbose than DEBUG logs ______[$value]_________" 
+    "Verbose: more verbose than DEBUG logs __99____[$value1]_________" 
   )
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
