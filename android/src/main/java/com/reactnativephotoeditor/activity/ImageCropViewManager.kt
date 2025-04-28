@@ -26,8 +26,8 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
-    : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
-
+    // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
+    :AppCompatActivity(reactContext) 
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
@@ -42,14 +42,14 @@ class ImageCropViewManager
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    inner class ImageView(input: CropImageContractOptions, itemView: CropImageView) :  CropImageView.CropResult {
-        val result = itemView?.parcelable<CropImage.ActivityResult>(CropImage.CROP_IMAGE_EXTRA_RESULT)
+    // inner class ImageView(input: CropImageContractOptions, itemView: CropImageView) :  CropImageView.CropResult {
+    //     val result = itemView?.parcelable<CropImage.ActivityResult>(CropImage.CROP_IMAGE_EXTRA_RESULT)
 
 
-        init {
-            result = CropImageView(itemView)
-        }
-      }
+    //     init {
+    //         result = CropImageView(itemView)
+    //     }
+    //   }
     // private val context = getApplicationContext();
     // override PhotoEditorView
     fun createViewInstance(): CropImageView {
