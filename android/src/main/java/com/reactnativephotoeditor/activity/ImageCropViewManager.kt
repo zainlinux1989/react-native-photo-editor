@@ -20,10 +20,10 @@ import java.util.*
 
 class ImageCropViewManager
 (
-    // private val 
+    private val 
     reactContext: ReactApplicationContext
 )
- : AppCompatActivity(reactContext) {
+ : CropImageView {
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
@@ -53,7 +53,7 @@ class ImageCropViewManager
             "reactContext: more verbose than DEBUG logs 11______[$value]_________" 
           )        
         //   val reactContext = getApplicationContext()  
-        val view =  CropImageView(context)
+        val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
                 val map = Arguments.createMap()

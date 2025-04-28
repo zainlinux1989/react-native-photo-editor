@@ -5,7 +5,6 @@ import android.content.Intent
 import android.util.Log
 import com.facebook.react.bridge.*
 import com.reactnativephotoeditor.activity.PhotoEditorActivity
-import com.reactnativephotoeditor.activity.ImageCropViewManager
 import com.reactnativephotoeditor.activity.constant.ResponseCode
 
 enum class ERROR_CODE {
@@ -30,7 +29,6 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
       return;
     }
     val intent = Intent(context, PhotoEditorActivity::class.java)
-    val intentCrop = Intent(context, ImageCropViewManager::class.java)
     context.addActivityEventListener(mActivityEventListener)
     Log.d(
       "TEST_TAG",
