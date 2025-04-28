@@ -37,7 +37,13 @@ class ImageCropViewManager
         const val SAVE_IMAGE_COMMAND_NAME = "saveImage"
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
-
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var mImageFilterView: ImageView = itemView.findViewById(R.id.imgFilterView)
+      
+        init {
+          itemView.setOnClickListener { mFilterListener.onFilterSelected(mPairList[layoutPosition].second) }
+        }
+      }
 
     // private val context = getApplicationContext();
     // override PhotoEditorView
