@@ -117,7 +117,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //    val d = Drawable.createFromStream(stream, null)
     mStickerFragment!!.setData(stickers)
 
-    mCropTools = ImageCropViewManager
+    mCropTools = ConstraintLayout
     mCropToolsPath = value?.getString("path")
     // mCropTools!!.createViewInstance()
 
