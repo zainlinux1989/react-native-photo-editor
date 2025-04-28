@@ -67,7 +67,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mPropertiesBSFragment: PropertiesBSFragment? = null
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
-  private var mCropTools: ImageCropViewManager? = null
+  private var mCropTools: ImageCropViewManager.Companion? = null
   private var mRvCropTools: CropImageView? = null
   private var mCropToolsPath: String? = null
   private var mStickerFragment: StickerFragment? = null
@@ -118,7 +118,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     // mCropTools = ConstraintLayout
-    mCropTools = ImageCropViewManager(ContextCompat)
+    mCropTools = ImageCropViewManager
     mCropToolsPath = value?.getString("path")
     // mCropTools!!.createViewInstance()
 
