@@ -83,7 +83,7 @@ class ImageCropViewManager
                 // )
             }
         }
-        return view
+        // return view
     }
 
     // override 
