@@ -403,7 +403,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       ToolType.CROP -> {
         mTxtCurrentTool!!.setText(R.string.corp_mode)
         // mCropTools!!.createViewInstance(mCropToolsPath)
-        mCropToolsView!!.createViewInstance()
+        // mCropToolsView!!.createViewInstance()
+        showCroper(true)
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
@@ -447,6 +448,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   fun showCroper(isVisible: Boolean) {
     mIsCropVisible = isVisible
     mConstraintSet.clone(mRootView)
+    Log.d(
+      "TEST_TAG",
+      "reactContext: more verbose than DEBUG logs 00____showCroper___________" 
+    ) 
     if (isVisible) {
       mConstraintSet.clear(mRvFilters!!.id, ConstraintSet.START)
       mConstraintSet.connect(
