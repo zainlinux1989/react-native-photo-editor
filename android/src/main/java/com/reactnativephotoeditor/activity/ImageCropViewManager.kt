@@ -42,7 +42,7 @@ class ImageCropViewManager
         const val ROTATE_IMAGE_COMMAND_NAME = "rotateImage"
     }
 
-    inner class ImageViewCrop(itemView: CropImageView) : ImageView {
+    inner class ImageView(itemView: CropImageView) : CropImageView() {
         var mImageFilterView: ImageView = itemView.findViewById(R.id.imgView)
     
         init {
