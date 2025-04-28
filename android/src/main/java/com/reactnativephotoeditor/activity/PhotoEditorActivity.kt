@@ -223,7 +223,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    mCropTools = findViewById(R.id.rvCropImageView)
+    // mCropTools = findViewById(R.id.rvCropImageView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
