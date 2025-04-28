@@ -68,6 +68,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
   private var mCropTools: ImageCropViewManager.Companion? = null
+  private var mCropToolsView: ImageCropViewManager? = null
   private var mRvCropTools: CropImageView? = null
   private var mCropToolsPath: String? = null
   private var mStickerFragment: StickerFragment? = null
@@ -402,7 +403,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       ToolType.CROP -> {
         mTxtCurrentTool!!.setText(R.string.corp_mode)
         // mCropTools!!.createViewInstance(mCropToolsPath)
-        mCropTools!!.createViewInstance()
+        mCropToolsView!!.createViewInstance()
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
