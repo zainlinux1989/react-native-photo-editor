@@ -15,6 +15,7 @@ import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
 import android.widget.ImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
+import androidx.activity.result.contract.ActivityResultContract
 // import com.canhub.cropper.CropOverlayView.CropWindowChangeListener
 import android.widget.FrameLayout
 import java.io.File
