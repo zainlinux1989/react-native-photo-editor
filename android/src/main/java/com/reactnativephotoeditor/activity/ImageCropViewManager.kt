@@ -15,6 +15,7 @@ import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
 // import com.canhub.cropper.CropOverlayView.CropWindowChangeListener
+import androidx.activity.result.contract.ActivityResultContract
 import android.widget.FrameLayout
 import java.io.File
 import java.util.*
@@ -24,7 +25,8 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
- : FrameLayout(reactContext) {
+//  : FrameLayout(reactContext) {
+ : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
