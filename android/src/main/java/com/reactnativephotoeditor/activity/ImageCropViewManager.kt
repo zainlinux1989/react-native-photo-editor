@@ -23,7 +23,7 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
- : SimpleViewManager<CropImageView>() {
+ : Int {
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
