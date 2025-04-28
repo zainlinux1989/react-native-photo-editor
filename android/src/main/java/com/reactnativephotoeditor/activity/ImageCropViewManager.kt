@@ -14,7 +14,8 @@ import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
-import ja.burhanrashid52.photoeditor.PhotoEditorView
+import com.canhub.cropper.CropOverlayView.CropWindowChangeListener
+import android.widget.FrameLayout
 import java.io.File
 import java.util.*
 
@@ -23,7 +24,8 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
- : CropImageView.SetImageUriAsync<String>() {
+ : FrameLayout(context, attrs),
+ CropWindowChangeListener() {
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
