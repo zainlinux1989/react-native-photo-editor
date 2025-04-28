@@ -53,7 +53,7 @@ class ImageCropViewManager
     // private val context = getApplicationContext();
     // override PhotoEditorView
     // fun createViewInstance(): CropImageView {
-    fun createViewInstance() {
+        private fun createViewInstance() {
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
