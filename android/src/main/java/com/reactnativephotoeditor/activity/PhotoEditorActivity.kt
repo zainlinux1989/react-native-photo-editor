@@ -118,8 +118,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     // mCropTools = ConstraintLayout
+    mCropTools = ImageCropViewManager(ContextCompat)
     mCropToolsPath = value?.getString("path")
-    mCropTools!!.createViewInstance()
+    // mCropTools!!.createViewInstance()
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
