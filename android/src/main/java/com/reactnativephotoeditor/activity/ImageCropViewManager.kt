@@ -23,7 +23,7 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
- : CropImageView() {
+ : CropImageView.SetImageUriAsync<String>() {
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
