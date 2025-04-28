@@ -25,7 +25,7 @@ class ImageCropViewManager
     private val 
     reactContext: ReactApplicationContext
 )
- : ImageViewCrop {
+ : ImageView<ImageViewCrop?>() {
     // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
 
     // private val context = reactApplicationContext;
