@@ -63,9 +63,9 @@ class ImageCropViewManager
     fun createViewInstance(): CropImageView {
 
         
-        val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            CropImageView
-          }
+        // val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        //     CropImageView
+        //   }
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
@@ -74,12 +74,14 @@ class ImageCropViewManager
                     "createViewInstance: more verbose than DEBUG logs 00_______________" 
                   ) 
         // val reactContext = path 
+
+        val reactContext = getApplicationContext()  
         Log.d(
             "TEST_TAG",
             "reactContext: more verbose than DEBUG logs 11______[$reactContext]_________" 
           )        
-        //   val reactContext = getApplicationContext()  
-        val view =  CropImageView(reactContext)
+
+          val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
                 val map = Arguments.createMap()
