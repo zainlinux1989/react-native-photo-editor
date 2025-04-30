@@ -83,6 +83,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mIsFilterVisible = false
   private var mIsCropVisible = false
 
+  private lateinit var binding: ExtendedActivityBinding
+
   @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
