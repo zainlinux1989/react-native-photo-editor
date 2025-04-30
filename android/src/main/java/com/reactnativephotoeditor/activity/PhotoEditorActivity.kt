@@ -447,13 +447,14 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
   fun showCroper(isVisible: Boolean) {
     mIsCropVisible = isVisible
-    mConstraintSet.clone(mRvCropTools)
+    mConstraintSet.clone(mRootView)
     Log.d(
       "TEST_TAG",
       "showCroper: more verbose than DEBUG logs 00____showCroper[$isVisible]___________" 
     ) 
     if (isVisible) {
       mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
+      mCropToolsView?.createViewInstance()
       mConstraintSet.connect(
         mRvCropTools!!.id, ConstraintSet.START,
         ConstraintSet.PARENT_ID, ConstraintSet.START
@@ -473,7 +474,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     changeBounds.duration = 350
     changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
     TransitionManager.beginDelayedTransition(mRvCropTools!!, changeBounds)
-    mConstraintSet.applyTo(mRvCropTools)
+    mConstraintSet.applyTo(mRootView)
   }
 
 
