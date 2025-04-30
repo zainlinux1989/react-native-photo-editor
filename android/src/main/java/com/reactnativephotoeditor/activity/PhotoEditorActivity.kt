@@ -225,6 +225,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
+    mRvCropTools = findViewById(R.id.rvCropImageView)
     // mCropTools = findViewById(R.id.rvCropImageView)
   }
 
@@ -450,10 +451,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mConstraintSet.clone(mRootView)
     Log.d(
       "TEST_TAG",
-      "reactContext: more verbose than DEBUG logs 00____showCroper___________" 
+      "showCroper: more verbose than DEBUG logs 00____showCroper[$isVisible]___________" 
     ) 
     if (isVisible) {
-      mConstraintSet.clear(mRvFilters!!.id, ConstraintSet.START)
+      mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
       mConstraintSet.connect(
         mRvCropTools!!.id, ConstraintSet.START,
         ConstraintSet.PARENT_ID, ConstraintSet.START
@@ -467,7 +468,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         mRvCropTools!!.id, ConstraintSet.START,
         ConstraintSet.PARENT_ID, ConstraintSet.END
       )
-      mConstraintSet.clear(mRvFilters!!.id, ConstraintSet.END)
+      mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.END)
     }
     val changeBounds = ChangeBounds()
     changeBounds.duration = 350

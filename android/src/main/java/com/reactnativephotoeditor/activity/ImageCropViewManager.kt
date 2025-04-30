@@ -58,7 +58,7 @@ class ImageCropViewManager
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
                 Log.d(
                     "TEST_TAG",
-                    "reactContext: more verbose than DEBUG logs 00_______________" 
+                    "createViewInstance: more verbose than DEBUG logs 00_______________" 
                   ) 
         // val reactContext = path 
         Log.d(
