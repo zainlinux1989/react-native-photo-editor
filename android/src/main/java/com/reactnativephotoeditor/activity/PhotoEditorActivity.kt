@@ -447,7 +447,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
   fun showCroper(isVisible: Boolean) {
     mIsCropVisible = isVisible
-    mConstraintSet.clone(mRootView)
+    mConstraintSet.clone(mRvCropTools)
     Log.d(
       "TEST_TAG",
       "showCroper: more verbose than DEBUG logs 00____showCroper[$isVisible]___________" 
@@ -472,8 +472,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val changeBounds = ChangeBounds()
     changeBounds.duration = 350
     changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
-    TransitionManager.beginDelayedTransition(mRootView!!, changeBounds)
-    mConstraintSet.applyTo(mRootView)
+    TransitionManager.beginDelayedTransition(mRvCropTools!!, changeBounds)
+    mConstraintSet.applyTo(mRvCropTools)
   }
 
 
