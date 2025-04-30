@@ -33,13 +33,6 @@ class ImageCropViewManager
     // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
     :AppCompatActivity() {
 
-        private var _binding: FragmentCropImageViewBinding? = null
-        private val binding get() = _binding!!
-      
-        private var options: CropImageOptions? = null
-        private val openPicker = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-          binding.cropImageView.setImageUriAsync(uri)
-        }
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
