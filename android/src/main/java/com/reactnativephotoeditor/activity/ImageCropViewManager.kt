@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.net.Uri
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext;
+import androidx.activity.result.contract.ActivityResultContracts
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
@@ -23,11 +24,11 @@ import java.util.*
 
 class ImageCropViewManager
 (
-    private val 
-    reactContext: ReactApplicationContext
+    // private val 
+    // reactContext: ReactApplicationContext
 )
     // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
-    :AppCompatActivity() {
+    :CreateViewInstance() {
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
@@ -52,7 +53,10 @@ class ImageCropViewManager
     //   }
     // private val context = getApplicationContext();
     // override PhotoEditorView
-    fun createViewInstance(): CropImageView {
+    override fun createViewInstance(): CropImageView {
+        private val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+            binding.cropImageView.setImageUriAsync(uri)
+          }
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
