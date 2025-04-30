@@ -64,7 +64,7 @@ class ImageCropViewManager
 
         
         val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-            CropImageView.setImageUriAsync(uri)
+            CropImageView
           }
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
