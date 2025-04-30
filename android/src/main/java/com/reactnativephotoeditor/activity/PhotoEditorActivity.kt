@@ -59,7 +59,7 @@ import java.io.File
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
-  OnItemSelected, FilterListener {
+  OnItemSelected, FilterListener, ImageCropViewManager {
   private var mPhotoEditor: PhotoEditor? = null
   private var mProgressDialog: ProgressDialog? = null
   private var mPhotoEditorView: PhotoEditorView? = null
@@ -454,6 +454,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     ) 
     if (isVisible) {
       mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
+      mCropTools=ImageCropViewManager(mRootView)
       mCropToolsView?.createViewInstance()
       mConstraintSet.connect(
         mRvCropTools!!.id, ConstraintSet.START,
