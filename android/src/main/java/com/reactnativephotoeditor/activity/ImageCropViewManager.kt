@@ -55,8 +55,8 @@ class ImageCropViewManager
     // override PhotoEditorView
     fun createViewInstance(): CropImageView {
 
-        private var _binding: CropImageView? = null
-        private val binding get() = _binding!!
+         var _binding = CropImageView? = null
+         val binding get() = _binding!!
 
         val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             binding.cropImageView.setImageUriAsync(uri)
