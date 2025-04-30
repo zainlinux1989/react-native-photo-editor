@@ -49,6 +49,8 @@ import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
 
+import com.canhub.cropper.CropImage.ActivityResult
+import com.canhub.cropper.CropImageActivity
 import com.canhub.cropper.CropImageView
 
 import ja.burhanrashid52.photoeditor.*
@@ -107,6 +109,15 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     "TEST_TAG",
     "Verbose: more verbose than DEBUG logs __99____[$value1]_________" 
   )
+
+  binding = ExtendedActivityBinding.inflate(layoutInflater)
+  binding.cropImageView.setOnCropWindowChangedListener {
+    updateExpectedImageSize()
+  }
+
+  setCropImageView(binding.cropImageView)
+
+
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
 

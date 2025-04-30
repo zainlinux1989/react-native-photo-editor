@@ -15,6 +15,8 @@ import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
+import com.canhub.cropper.CropImageView.OnCropImageCompleteListener
+import com.canhub.cropper.CropImageView.OnSetImageUriCompleteListener
 import android.widget.ImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
 import androidx.activity.result.contract.ActivityResultContract
@@ -30,6 +32,14 @@ class ImageCropViewManager
 )
     // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
     :AppCompatActivity() {
+
+        private var _binding: FragmentCropImageViewBinding? = null
+        private val binding get() = _binding!!
+      
+        private var options: CropImageOptions? = null
+        private val openPicker = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+          binding.cropImageView.setImageUriAsync(uri)
+        }
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
