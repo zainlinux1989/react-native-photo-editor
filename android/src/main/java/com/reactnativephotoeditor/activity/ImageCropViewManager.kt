@@ -50,13 +50,17 @@ class ImageCropViewManager
     //     init {
     //         result = CropImageView(itemView)
     //     }
+    
     //   }
     // private val context = getApplicationContext();
     // override PhotoEditorView
+
+    var _binding = CropImageView? = null
+    val binding get() = _binding!!
+
     fun createViewInstance(): CropImageView {
 
-         var _binding = CropImageView? = null
-         val binding get() = _binding!!
+
 
         val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             binding.cropImageView.setImageUriAsync(uri)
