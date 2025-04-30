@@ -2,6 +2,7 @@ package com.reactnativephotoeditor.activity
 
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.net.Uri
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -60,8 +61,8 @@ class ImageCropViewManager
 
     fun createViewInstance(): CropImageView {
 
-
-
+        _binding = CropImageView.inflate(layoutInflater, container, false)
+        
         val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
             binding.cropImageView.setImageUriAsync(uri)
           }
