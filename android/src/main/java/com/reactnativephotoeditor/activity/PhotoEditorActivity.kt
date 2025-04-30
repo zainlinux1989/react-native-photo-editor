@@ -454,7 +454,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     ) 
     if (isVisible) {
       mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
-      mCropTools=ImageCropViewManager(mRootView)
+      mCropToolsView = ImageCropViewManager(mRootView)
       mCropToolsView?.createViewInstance()
       mConstraintSet.connect(
         mRvCropTools!!.id, ConstraintSet.START,
