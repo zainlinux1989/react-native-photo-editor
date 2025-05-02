@@ -49,8 +49,6 @@ import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
 
-import com.canhub.cropper.CropImage.ActivityResult
-import com.canhub.cropper.CropImageActivity
 import com.canhub.cropper.CropImageView
 
 import ja.burhanrashid52.photoeditor.*
@@ -58,8 +56,6 @@ import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
-
-import com.reactnativephotoeditor.databinding.ExtendedActivityBinding
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -84,8 +80,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private val mConstraintSet = ConstraintSet()
   private var mIsFilterVisible = false
   private var mIsCropVisible = false
-
-  private lateinit var binding: ExtendedActivityBinding
 
   @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,15 +107,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     "TEST_TAG",
     "Verbose: more verbose than DEBUG logs __99____[$value1]_________" 
   )
-
-  binding = ExtendedActivityBinding.inflate(layoutInflater)
-  binding.cropImageView.setOnCropWindowChangedListener {
-    updateExpectedImageSize()
-  }
-
-  setCropImageView(binding.cropImageView)
-
-
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
 
@@ -469,8 +454,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     ) 
     if (isVisible) {
       mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
-      mCropToolsView = ImageCropViewManager(mRootView)
-      mCropToolsView?.createViewInstance()
       mConstraintSet.connect(
         mRvCropTools!!.id, ConstraintSet.START,
         ConstraintSet.PARENT_ID, ConstraintSet.START
@@ -489,7 +472,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val changeBounds = ChangeBounds()
     changeBounds.duration = 350
     changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
-    TransitionManager.beginDelayedTransition(mRvCropTools!!, changeBounds)
+    TransitionManager.beginDelayedTransition(mRootView!!, changeBounds)
     mConstraintSet.applyTo(mRootView)
   }
 
