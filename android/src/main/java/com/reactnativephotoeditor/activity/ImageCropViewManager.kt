@@ -2,9 +2,11 @@ package com.reactnativephotoeditor.activity
 
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.net.Uri
 import android.util.Log
 import com.facebook.react.bridge.ReactApplicationContext;
+import androidx.activity.result.contract.ActivityResultContracts
 import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
@@ -13,6 +15,8 @@ import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 import com.canhub.cropper.CropImageView
+import com.canhub.cropper.CropImageView.OnCropImageCompleteListener
+import com.canhub.cropper.CropImageView.OnSetImageUriCompleteListener
 import android.widget.ImageView
 import com.facebook.react.uimanager.events.RCTEventEmitter
 import androidx.activity.result.contract.ActivityResultContract
@@ -23,11 +27,12 @@ import java.util.*
 
 class ImageCropViewManager
 (
-    private val 
-    reactContext: ReactApplicationContext
+    // private val 
+    // reactContext: ReactApplicationContext
 )
     // : ActivityResultContract<CropImageContractOptions, CropImageView.CropResult>(){
     :AppCompatActivity() {
+
     // private val context = reactApplicationContext;
 //  : SimpleViewManager<CropImageView>() {
         companion object {
@@ -49,10 +54,18 @@ class ImageCropViewManager
     //     init {
     //         result = CropImageView(itemView)
     //     }
+    
     //   }
     // private val context = getApplicationContext();
     // override PhotoEditorView
+
+
     fun createViewInstance(): CropImageView {
+
+        
+        // val reactContext = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        //     CropImageView
+        //   }
     // fun createViewInstance(reactContext: ThemedReactContext): CropImageView {
     // fun createViewInstance(path: String): CropImageView {
             // fun createViewInstance(reactContext: ReactApplicationContext): CropImageView {
@@ -61,12 +74,14 @@ class ImageCropViewManager
                     "createViewInstance: more verbose than DEBUG logs 00___01____________" 
                   ) 
         // val reactContext = path 
+
+        val reactContext = getApplicationContext()  
         Log.d(
             "TEST_TAG",
             "reactContext: more verbose than DEBUG logs 11______[$reactContext]_________" 
           )        
-        //   val reactContext = getApplicationContext()  
-        val view =  CropImageView(reactContext)
+
+          val view =  CropImageView(reactContext)
         view.setOnCropImageCompleteListener { _, result ->
             if (result.isSuccessful) {
                 val map = Arguments.createMap()
