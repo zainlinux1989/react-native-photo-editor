@@ -100,7 +100,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     // val valueContext = value?.getBooleanExtra("context")
     // val valueContext = applicationContext
     // val valueContext = value?.getBooleanExtra("context")
-    val path = value?.getString("path")
+    val path: String = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
         assets.list("Stickers")!!
@@ -343,7 +343,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     }
 
     imageUri = Uri.parse(imagePath);
-    cropPromise = promise;
+    // val cropPromise = promise;
 
     CropImage.activity(imageUri)
             .setGuidelines(CropImageView.Guidelines.ON)
