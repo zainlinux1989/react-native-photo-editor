@@ -6,6 +6,12 @@ import android.util.Log
 import com.facebook.react.bridge.*
 import com.reactnativephotoeditor.activity.PhotoEditorActivity
 import com.reactnativephotoeditor.activity.constant.ResponseCode
+import android.net.Uri;
+
+import com.facebook.react.bridge.*;
+import com.canhub.cropper.*;
+
+
 
 enum class ERROR_CODE {
 
@@ -16,6 +22,8 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
   private val EDIT_SUCCESSFUL = 1
   private var promise: Promise? = null
+  
+
   override fun getName(): String {
     return "PhotoEditor"
   }
@@ -48,6 +56,23 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
     activity.startActivityForResult(intent, EDIT_SUCCESSFUL)
   }
 
+  @ReactMethod
+  fun cropImage(imagePath: String, promise: Promise) {
+      val currentActivity: Activity = getCurrentActivity();
+
+      if (currentActivity == null) {
+          promise.reject("NO_ACTIVITY", "No activity found");
+          return;
+      }
+
+      val imageUri: Uri = Uri.parse(imagePath);
+      val cropPromise = promise;
+
+      CropImage.activity(imageUri)
+              .setGuidelines(CropImageView.Guidelines.ON)
+              .start(currentActivity);
+  }
+
   private val mActivityEventListener: ActivityEventListener = object : BaseActivityEventListener() {
     override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, intent: Intent?) {
       if (requestCode == EDIT_SUCCESSFUL) {
@@ -68,4 +93,25 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
       }
     }
   }
+
+  public fun onActivityResult( activity: Activity,  requestCode: Number, resultCode: Number,  data: Intent) {
+    if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+        CropImage.ActivityResult result = CropImage.getActivityResult(data);
+        if (resultCode == Activity.RESULT_OK) {
+            Uri resultUri = result.getUriContent();
+            if (cropPromise != null) {
+                cropPromise.resolve(resultUri.toString());
+            }
+        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+            Exception error = result.getError();
+            if (cropPromise != null) {
+                cropPromise.reject("CROP_ERROR", error.getMessage());
+            }
+        }
+        val cropPromise = null;
+    }
+}
+
+@Override
+public fun onNewIntent( intent: Intent) {}
 }

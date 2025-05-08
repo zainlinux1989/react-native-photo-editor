@@ -341,7 +341,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //     )
 // }
 
-  private fun cropImage(imagePath: String) {
+  private fun cropImageOpen(imagePath: String) {
     //  currentActivity = getCurrentActivity();
     //  val currentActivity = currentActivity
     // if (currentActivity == null) {
@@ -352,18 +352,18 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
 
-    // CropImage.activity(imageUri)
-    //         // .setImageSource(includeGallery = false, includeCamera = true)
-    //         .setGuidelines(CropImageView.Guidelines.ON)
-    //         .start(this);
-            // .start(currentActivity);
-            Intent intent = CropImage
-            .activity(imageUri)
+    cropImage.activity(imageUri)
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
-            .getIntent(this);
+            .start(this);
+            // .start(currentActivity);
+            // Intent intent = CropImage
+            // .activity(imageUri)
+            // // .setImageSource(includeGallery = false, includeCamera = true)
+            // .setGuidelines(CropImageView.Guidelines.ON)
+            // .getIntent(this);
 
-startActivityForResult(intent, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE);
+    // startActivityForResult(intent, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE);
 
 }
 
@@ -447,7 +447,7 @@ startActivityForResult(intent, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE);
         // mCropToolsView!!.createViewInstance()
         // showCroper(true)
 
-        cropImage(mCropToolsPath)
+        cropImageOpen(mCropToolsPath)
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
