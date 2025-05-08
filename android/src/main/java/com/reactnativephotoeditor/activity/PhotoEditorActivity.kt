@@ -341,7 +341,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //     )
 // }
 
-  private fun cropImage1(imagePath: String) {
+  private fun cropImage(imagePath: String) {
     //  currentActivity = getCurrentActivity();
     //  val currentActivity = currentActivity
     // if (currentActivity == null) {
@@ -352,11 +352,19 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
 
-    CropImage.activity(imageUri)
+    // CropImage.activity(imageUri)
+    //         // .setImageSource(includeGallery = false, includeCamera = true)
+    //         .setGuidelines(CropImageView.Guidelines.ON)
+    //         .start(this);
+            // .start(currentActivity);
+            Intent intent = CropImage
+            .activity(imageUri)
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
-            .start(this);
-            // .start(currentActivity);
+            .getIntent(this);
+
+startActivityForResult(intent, CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE);
+
 }
 
   private fun requestPer() {
