@@ -84,8 +84,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private val mConstraintSet = ConstraintSet()
   private var mIsFilterVisible = false
   private var mIsCropVisible = false
-  private static final int CROP_IMAGE_ACTIVITY_REQUEST_CODE = 203;
-  private Promise cropPromise;
+  // private static final int CROP_IMAGE_ACTIVITY_REQUEST_CODE = 203;
+  // private var cropPromise: Promise? = null;
   
   @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -335,14 +335,14 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
 
   private fun cropImage(imagePath: String, promise: Promise) {
-    Activity currentActivity = getCurrentActivity();
+     currentActivity = getCurrentActivity();
 
     if (currentActivity == null) {
         promise.reject("NO_ACTIVITY", "No activity found");
         return;
     }
 
-    Uri imageUri = Uri.parse(imagePath);
+    imageUri = Uri.parse(imagePath);
     cropPromise = promise;
 
     CropImage.activity(imageUri)
