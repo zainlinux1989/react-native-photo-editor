@@ -96,14 +96,14 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
   public fun onActivityResult( activity: Activity,  requestCode: Number, resultCode: Number,  data: Intent) {
     if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-        CropImage.ActivityResult result = CropImage.getActivityResult(data);
+        val result: CropImage.ActivityResult = CropImage.getActivityResult(data);
         if (resultCode == Activity.RESULT_OK) {
-            Uri resultUri = result.getUriContent();
+            val resultUri: Uri = result.getUriContent();
             if (cropPromise != null) {
                 cropPromise.resolve(resultUri.toString());
             }
         } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-            Exception error = result.getError();
+            val error: Exception = result.getError();
             if (cropPromise != null) {
                 cropPromise.reject("CROP_ERROR", error.getMessage());
             }
