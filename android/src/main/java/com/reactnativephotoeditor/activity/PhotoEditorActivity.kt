@@ -342,7 +342,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     //     return;
     // }
 
-    imageUri = Uri.parse(imagePath);
+    val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
 
     CropImage.activity(imageUri)
