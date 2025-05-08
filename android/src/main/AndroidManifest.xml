@@ -12,5 +12,9 @@
     <activity
       android:name=".activity.PhotoEditorActivity"
       android:configChanges="orientation|keyboardHidden|screenSize" />
+      <activity
+            android:name="com.canhub.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"
+            />
   </application>
 </manifest>

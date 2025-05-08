@@ -332,31 +332,32 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     }
   }
 
-  private fun cropImage(imagePath: String) {
-    // Start picker to get image for cropping and then use the image in cropping activity.
-    CropImage.launch(
-        CropImageContractOptions(uri = imagePath, cropImageOptions = CropImageOptions(
-            guidelines = CropImageView.Guidelines.ON
-        ))
-    )
-}
-
-//   private fun cropImage1(imagePath: String) {
-//     //  currentActivity = getCurrentActivity();
-//     //  val currentActivity = currentActivity
-//     // if (currentActivity == null) {
-//     //     promise.reject("NO_ACTIVITY", "No activity found");
-//     //     return;
-//     // }
-
-//     val imageUri = Uri.parse(imagePath);
-//     // val cropPromise = promise;
-
-//     CropImageView.activity(imageUri)
-//             .setGuidelines(CropImageView.Guidelines.ON)
-//             .start(this);
-//             // .start(currentActivity);
+//   private fun cropImage(imagePath: String) {
+//     // Start picker to get image for cropping and then use the image in cropping activity.
+//     CropImage.launch(
+//         CropImageContractOptions(uri = imagePath, cropImageOptions = CropImageOptions(
+//             guidelines = CropImageView.Guidelines.ON
+//         ))
+//     )
 // }
+
+  private fun cropImage1(imagePath: String) {
+    //  currentActivity = getCurrentActivity();
+    //  val currentActivity = currentActivity
+    // if (currentActivity == null) {
+    //     promise.reject("NO_ACTIVITY", "No activity found");
+    //     return;
+    // }
+
+    val imageUri = Uri.parse(imagePath);
+    // val cropPromise = promise;
+
+    CropImage.activity(imageUri)
+            // .setImageSource(includeGallery = false, includeCamera = true)
+            .setGuidelines(CropImageView.Guidelines.ON)
+            .start(this);
+            // .start(currentActivity);
+}
 
   private fun requestPer() {
     requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
