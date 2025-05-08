@@ -334,7 +334,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
 
 
-  private fun cropImage(imagePath: String, promise: Promise) {
+  private fun cropImage(imagePath: String) {
     //  currentActivity = getCurrentActivity();
     //  val currentActivity = currentActivity
     // if (currentActivity == null) {
@@ -345,7 +345,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
 
-    CropImage.activity(imageUri)
+    CropImageView.activity(imageUri)
             .setGuidelines(CropImageView.Guidelines.ON)
             .start(this);
             // .start(currentActivity);
@@ -431,7 +431,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         // mCropToolsView!!.createViewInstance()
         // showCroper(true)
 
-        cropImage(mCropToolsPath,Promise)
+        cropImage(mCropToolsPath)
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
