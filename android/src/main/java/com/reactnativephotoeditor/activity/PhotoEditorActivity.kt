@@ -71,9 +71,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
   private var mCropTools: ImageCropViewManager.Companion? = null
-  private var mCropToolsView: CropImageModule? = null
+  private var mCropToolsView: CropImageView? = null
   private var mRvCropTools: CropImageView? = null
-  private var mCropToolsPath: String = ''
+  private var mCropToolsPath: String = 'file://'
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -335,8 +335,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
 
   private fun cropImage(imagePath: String, promise: Promise) {
-     currentActivity = getCurrentActivity();
-
+    //  currentActivity = getCurrentActivity();
+     val currentActivity = currentActivity
     if (currentActivity == null) {
         promise.reject("NO_ACTIVITY", "No activity found");
         return;
