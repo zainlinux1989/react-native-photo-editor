@@ -3,6 +3,7 @@ package com.reactnativephotoeditor.activity
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.app.Activity;
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -41,7 +42,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.reactnativephotoeditor.R
 import com.reactnativephotoeditor.activity.StickerFragment.StickerListener
-import com.reactnativephotoeditor.activity.ImageCropViewManager
+
 import com.reactnativephotoeditor.activity.constant.ResponseCode
 import com.reactnativephotoeditor.activity.filters.FilterListener
 import com.reactnativephotoeditor.activity.filters.FilterViewAdapter
@@ -49,13 +50,16 @@ import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
 
-import com.canhub.cropper.CropImageView
-
 import ja.burhanrashid52.photoeditor.*
 import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
+
+import android.net.Uri;
+
+import com.facebook.react.bridge.*;
+import com.canhub.cropper.*;
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -67,9 +71,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
   private var mCropTools: ImageCropViewManager.Companion? = null
-  private var mCropToolsView: ImageCropViewManager? = null
+  private var mCropToolsView: CropImageModule? = null
   private var mRvCropTools: CropImageView? = null
-  private var mCropToolsPath: String? = null
+  private var mCropToolsPath: String = ''
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -80,7 +84,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private val mConstraintSet = ConstraintSet()
   private var mIsFilterVisible = false
   private var mIsCropVisible = false
-
+  private static final int CROP_IMAGE_ACTIVITY_REQUEST_CODE = 203;
+  private Promise cropPromise;
+  
   @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -119,7 +125,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     // mCropTools = ConstraintLayout
     mCropTools = ImageCropViewManager
-    mCropToolsPath = value?.getString("path")
+    mCropToolsPath = path
     // mCropTools!!.createViewInstance()
 
     mShapeBSFragment = ShapeBSFragment()
@@ -326,6 +332,24 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     }
   }
 
+
+
+  private fun cropImage(imagePath: String, promise: Promise) {
+    Activity currentActivity = getCurrentActivity();
+
+    if (currentActivity == null) {
+        promise.reject("NO_ACTIVITY", "No activity found");
+        return;
+    }
+
+    Uri imageUri = Uri.parse(imagePath);
+    cropPromise = promise;
+
+    CropImage.activity(imageUri)
+            .setGuidelines(CropImageView.Guidelines.ON)
+            .start(currentActivity);
+}
+
   private fun requestPer() {
     requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
   }
@@ -404,7 +428,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         mTxtCurrentTool!!.setText(R.string.corp_mode)
         // mCropTools!!.createViewInstance(mCropToolsPath)
         // mCropToolsView!!.createViewInstance()
-        showCroper(true)
+        // showCroper(true)
+
+        cropImage(mCropToolsPath,Promise)
         // mCropTools!!.createViewInstance(this)
         // mCropTools!!.getCommandsMap()
       }
