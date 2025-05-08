@@ -73,7 +73,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mCropTools: ImageCropViewManager.Companion? = null
   private var mCropToolsView: CropImageView? = null
   private var mRvCropTools: CropImageView? = null
-  private var mCropToolsPath: String = 'file://'
+  private var mCropToolsPath: String = "file:"
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -347,7 +347,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     CropImage.activity(imageUri)
             .setGuidelines(CropImageView.Guidelines.ON)
-            .start(currentActivity);
+            .start(this);
+            // .start(currentActivity);
 }
 
   private fun requestPer() {
