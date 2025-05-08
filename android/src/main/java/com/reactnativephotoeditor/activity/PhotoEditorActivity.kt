@@ -100,7 +100,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     // val valueContext = value?.getBooleanExtra("context")
     // val valueContext = applicationContext
     // val valueContext = value?.getBooleanExtra("context")
-    val path: String = value?.getString("path")
+    val path: String = value?.getString("path").toString()
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
         assets.list("Stickers")!!
@@ -336,11 +336,11 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
   private fun cropImage(imagePath: String, promise: Promise) {
     //  currentActivity = getCurrentActivity();
-     val currentActivity = currentActivity
-    if (currentActivity == null) {
-        promise.reject("NO_ACTIVITY", "No activity found");
-        return;
-    }
+    //  val currentActivity = currentActivity
+    // if (currentActivity == null) {
+    //     promise.reject("NO_ACTIVITY", "No activity found");
+    //     return;
+    // }
 
     imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
