@@ -58,7 +58,8 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
   @ReactMethod
   fun cropImage(imagePath: String, promise: Promise) {
-      val currentActivity: Activity = getCurrentActivity();
+      val currentActivity= currentActivity
+
 
       if (currentActivity == null) {
           promise.reject("NO_ACTIVITY", "No activity found");
@@ -112,6 +113,4 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
     }
 }
 
-@Override
-public fun onNewIntent( intent: Intent) {}
 }
