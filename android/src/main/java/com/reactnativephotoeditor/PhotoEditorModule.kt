@@ -9,7 +9,8 @@ import com.reactnativephotoeditor.activity.constant.ResponseCode
 import android.net.Uri;
 
 import com.facebook.react.bridge.*
-
+import com.canhub.cropper.CropImage
+import com.canhub.cropper.CropImageView
 
 
 enum class ERROR_CODE {
@@ -74,6 +75,15 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
           
         }
       }
+      if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+        val result = CropImage.getActivityResult(intent)
+        if (resultCode == RESULT_OK) {
+            val resultUri = result?.uriContent
+            // використовуй результат
+        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+            val error = result?.error
+        }
+    }
     }
   }
 
