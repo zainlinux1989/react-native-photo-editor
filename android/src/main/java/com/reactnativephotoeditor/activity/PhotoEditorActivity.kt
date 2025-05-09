@@ -354,7 +354,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
-
+    
     CropImage.activity(imageUri)
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
