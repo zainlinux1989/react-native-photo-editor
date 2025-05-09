@@ -59,7 +59,10 @@ import java.io.File
 import android.net.Uri;
 
 import com.facebook.react.bridge.*;
-import com.canhub.cropper.*;
+// import com.canhub.cropper.*;
+import com.canhub.cropper.CropImage
+import com.canhub.cropper.CropImageView
+
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -352,7 +355,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     val imageUri = Uri.parse(imagePath);
     // val cropPromise = promise;
 
-    cropImage.activity(imageUri)
+    CropImage.activity(imageUri)
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
             .start(this);
