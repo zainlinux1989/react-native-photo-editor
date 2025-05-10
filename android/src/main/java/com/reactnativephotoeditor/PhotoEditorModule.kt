@@ -84,10 +84,10 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
           uriContent = intent.extras?.getString("path"),
       error = error(message),
       cropPoints = binding.cropImageView.cropPoints,
-      cropRect = CropImageView.cropRect;
-      rotation = CropImageView.rotatedDegrees;
-      wholeImageRect = CropImageView.wholeImageRect;
-      sampleSize = 40;
+      cropRect = CropImageView.cropRect,
+      rotation = CropImageView.rotatedDegrees,
+      wholeImageRect = CropImageView.wholeImageRect,
+      sampleSize = 40
       )
         if (resultCode == RESULT_OK) {
             val resultUri = result?.uriContent
