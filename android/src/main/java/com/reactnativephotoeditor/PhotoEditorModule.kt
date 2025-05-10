@@ -10,6 +10,7 @@ import android.net.Uri;
 
 import com.facebook.react.bridge.*
 import com.canhub.cropper.CropImage
+import com.canhub.cropper.CropImage.ActivityResult
 import com.canhub.cropper.CropImageView
 
 
@@ -59,6 +60,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
 
   private val mActivityEventListener: ActivityEventListener = object : BaseActivityEventListener() {
     override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, intent: Intent?) {
+
       if (requestCode == EDIT_SUCCESSFUL) {
         when (resultCode) {
           ResponseCode.RESULT_OK -> {
@@ -76,7 +78,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
         }
       }
       if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-        val result = CropImage.getActivityResult(intent)
+        val result = ActivityResult(intent)
         if (resultCode == RESULT_OK) {
             val resultUri = result?.uriContent
             // використовуй результат
