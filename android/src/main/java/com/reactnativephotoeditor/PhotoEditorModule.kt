@@ -79,13 +79,13 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
         }
       }
     if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-        val result = ActivityResult(data)
-        if (resultCode == RESULT_OK) {
-            val resultUri = result?.uriContent
-            // використовуй результат
-        } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-            val error = result?.error
-        }
+        // val result = ActivityResult(data)
+        // if (resultCode == RESULT_OK) {
+        //     val resultUri = result?.uriContent
+        //     // використовуй результат
+        // } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+        //     val error = result?.error
+        // }
       }
     }
   }
