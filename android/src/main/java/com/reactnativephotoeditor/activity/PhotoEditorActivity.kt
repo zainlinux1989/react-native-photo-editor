@@ -358,8 +358,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //             // promise.reject("NO_ACTIVITY", "Activity not available")
 //             return
 //         }   
-    // CropImage.activity(imageUri)
-    CropImage.launch(imageUri)
+    CropImage.activity(imageUri)
+    // CropImage.launch(imageUri)
 
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
