@@ -60,7 +60,7 @@ import android.net.Uri;
 
 // import com.facebook.react.bridge.*;
 // // import com.canhub.cropper.*;
-// import com.canhub.cropper.CropImage
+import com.canhub.cropper.CropImage
 import com.canhub.cropper.CropImageView
 
 
