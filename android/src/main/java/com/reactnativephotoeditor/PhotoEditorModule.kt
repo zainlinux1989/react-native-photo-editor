@@ -81,9 +81,9 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
       if (requestCode == CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
         val result = ActivityResult( 
           originalUri = binding.cropImageView.imageUri,
-          uriContent = {uri:"file://ddddd"};
-      error = error(message);
-      cropPoints = binding.cropImageView.cropPoints;
+          uriContent = intent.extras?.getString("path"),
+      error = error(message),
+      cropPoints = binding.cropImageView.cropPoints,
       cropRect = CropImageView.cropRect;
       rotation = CropImageView.rotatedDegrees;
       wholeImageRect = CropImageView.wholeImageRect;
