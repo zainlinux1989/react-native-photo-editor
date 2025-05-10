@@ -22,6 +22,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
   private val context = reactApplicationContext;
 
   private val EDIT_SUCCESSFUL = 1
+  private val CROP_IMAGE_ACTIVITY_REQUEST_CODE = 204
   private var promise: Promise? = null
   
 
@@ -77,7 +78,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
           
         }
       }
-      if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+      if (requestCode == CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
         val result = ActivityResult(intent)
         if (resultCode == RESULT_OK) {
             val resultUri = result?.uriContent
