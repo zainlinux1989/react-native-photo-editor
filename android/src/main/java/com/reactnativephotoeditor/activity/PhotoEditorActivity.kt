@@ -351,15 +351,15 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     //     promise.reject("NO_ACTIVITY", "No activity found");
     //     return;
     // }
-val activity: Activity? = currentActivity
+// val activity: Activity? = currentActivity
     val imageUri = Uri.parse(imagePath)
-    // val cropPromise = promise;
-         if (activity == null) {
-            promise.reject("NO_ACTIVITY", "Activity not available")
-            return
-        }   
+//     // val cropPromise = promise;
+//          if (activity == null) {
+//             // promise.reject("NO_ACTIVITY", "Activity not available")
+//             return
+//         }   
     CropImage.activity(imageUri)
-    
+
             // .setImageSource(includeGallery = false, includeCamera = true)
             .setGuidelines(CropImageView.Guidelines.ON)
             .start(this);
