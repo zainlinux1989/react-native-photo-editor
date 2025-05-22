@@ -118,7 +118,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mStickerFragment!!.setData(stickers)
 
     // mCropTools = ConstraintLayout
-    mCropTools = ImageCropViewManager
+    // mCropTools = ImageCropViewManager
     mCropToolsPath = value?.getString("path")
     // mCropTools!!.createViewInstance()
 
@@ -452,23 +452,23 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       "TEST_TAG",
       "showCroper: more verbose than DEBUG logs 00____showCroper[$isVisible]___________" 
     ) 
-    if (isVisible) {
-      mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
-      mConstraintSet.connect(
-        mRvCropTools!!.id, ConstraintSet.START,
-        ConstraintSet.PARENT_ID, ConstraintSet.START
-      )
-      mConstraintSet.connect(
-        mRvCropTools!!.id, ConstraintSet.END,
-        ConstraintSet.PARENT_ID, ConstraintSet.END
-      )
-    } else {
-      mConstraintSet.connect(
-        mRvCropTools!!.id, ConstraintSet.START,
-        ConstraintSet.PARENT_ID, ConstraintSet.END
-      )
-      mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.END)
-    }
+    // if (isVisible) {
+      // mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
+      // mConstraintSet.connect(
+      //   mRvCropTools!!.id, ConstraintSet.START,
+      //   ConstraintSet.PARENT_ID, ConstraintSet.START
+      // )
+      // mConstraintSet.connect(
+      //   mRvCropTools!!.id, ConstraintSet.END,
+      //   ConstraintSet.PARENT_ID, ConstraintSet.END
+      // )
+    // } else {
+      // mConstraintSet.connect(
+      //   mRvCropTools!!.id, ConstraintSet.START,
+      //   ConstraintSet.PARENT_ID, ConstraintSet.END
+      // )
+      // mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.END)
+    // }
     val changeBounds = ChangeBounds()
     changeBounds.duration = 350
     changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
