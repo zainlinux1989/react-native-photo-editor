@@ -41,7 +41,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.reactnativephotoeditor.R
 import com.reactnativephotoeditor.activity.StickerFragment.StickerListener
-import com.reactnativephotoeditor.activity.ImageCropViewManager
+// import com.reactnativephotoeditor.activity.ImageCropViewManager
 import com.reactnativephotoeditor.activity.constant.ResponseCode
 import com.reactnativephotoeditor.activity.filters.FilterListener
 import com.reactnativephotoeditor.activity.filters.FilterViewAdapter
@@ -49,7 +49,7 @@ import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
 
-import com.canhub.cropper.CropImageView
+// import com.canhub.cropper.CropImageView
 
 import ja.burhanrashid52.photoeditor.*
 import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
@@ -66,9 +66,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mPropertiesBSFragment: PropertiesBSFragment? = null
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
-  private var mCropTools: ImageCropViewManager.Companion? = null
-  private var mCropToolsView: ImageCropViewManager? = null
-  private var mRvCropTools: CropImageView? = null
+  // private var mCropTools: ImageCropViewManager.Companion? = null
+  // private var mCropToolsView: ImageCropViewManager? = null
+  // private var mRvCropTools: CropImageView? = null
   private var mCropToolsPath: String? = null
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
@@ -224,7 +224,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    mRvCropTools = findViewById(R.id.rvCropImageView)
+    // mRvCropTools = findViewById(R.id.rvCropImageView)
     // mCropTools = findViewById(R.id.rvCropImageView)
   }
 
