@@ -131,7 +131,7 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   // implementation 'com.github.CanHub:Android-Image-Cropper:4.1.0'
-  implementation 'com.github.CanHub:Android-Image-Cropper:4.3.2'
+  // implementation 'com.github.CanHub:Android-Image-Cropper:4.3.2'
   // implementation "com.vanniktech:android-image-cropper:4.5.0"
   // implementation("com.vanniktech:android-image-cropper:4.3.3")
   // implementation("com.vanniktech:android-image-cropper:4.6.0")
