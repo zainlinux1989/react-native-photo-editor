@@ -1,3 +1,4 @@
+
 # React Native Photo Editor (RNPE)
 
 🌄 Image editor using native modules for iOS and Android. Inherit from 2 available libraries, [ZLImageEditor](https://github.com/longitachi/ZLImageEditor) (iOS) and [PhotoEditor](https://github.com/burhanrashid52/PhotoEditor) (Android)
@@ -64,9 +65,10 @@ This lib is for personal use, so if you customize your style or change something
 ## Installation
 
 ```sh
-yarn add @baronha/react-native-photo-editor
+yarn add @atey70/react-native-photo-editor
 Android: Installation is automatic.
 iOS: Add pod 'react-native-image-crop-tools', :path => '../node_modules/react-native-image-crop-tools' in your podfile below the line use_native_modules!. Then run pod installin iOS folder.
+npm install @atey70/react-native-photo-editor
 ```
 
 ### iOS
@@ -85,7 +87,10 @@ Then run ```cd ios/ && pod install```
 ## Usage
 
 ```js
-import PhotoEditor from "@baronha/react-native-photo-editor";
+
+
+import PhotoEditor from "@atey70/react-native-photo-editor";
+
 
 // ...
 
