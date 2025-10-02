@@ -149,8 +149,8 @@ You have to create ```Stickers``` folder inside ```assets``` folder. Then drag o
 
 ## Performance
 
-We're trying to improve performance. If you have a better solution, please open a [issue](https://github.com/baronha/react-native-photo-editor/issues)
-or [pull request](https://github.com/baronha/react-native-photo-editor/pulls). Best regards!
+We're trying to improve performance. If you have a better solution, please open a [issue](https://github.com/atey70/react-native-photo-editor/issues)
+or [pull request](https://github.com/atey70/react-native-photo-editor/pulls). Best regards!
 
 ## Contributing
 
@@ -176,13 +176,6 @@ Thanks go to these wonderful people:
                     <img src="https://avatars.githubusercontent.com/u/202248831?v=4" width="100;" alt="gizthub"/>
                     <br />
                     <sub><b>gizthub</b></sub>
-                </a>
-            </td>
-            <td align="center">
-                <a href="https://github.com/baronha">
-                    <img src="https://avatars.githubusercontent.com/u/23580920?v=4" width="100;" alt="baronha"/>
-                    <br />
-                    <sub><b>Bảo Hà.</b></sub>
                 </a>
             </td>
             <td align="center">
