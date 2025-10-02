@@ -12,7 +12,7 @@ import { Header, ButtonGroup } from './components';
 import { ActivityIndicator } from 'react-native';
 
 // const cover =
-//   'https://raw.githubusercontent.com/atey70/react-native-photo-editor/dev/example/src/assets/images/adam-creator.png';
+//   'https://raw.githubusercontent.com/baronha/react-native-photo-editor/dev/example/src/assets/images/adam-creator.png';
 
 const clientId = 'JgOxefg8FPPlKNXCGLeawYcPc67V-C2PE6Z84tAjk_c';
 const unsplashApi = `https://api.unsplash.com/collections/mBVp78Oe5kY/photos?per_page=100&client_id=${clientId}`;
