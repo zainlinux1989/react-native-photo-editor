@@ -12,7 +12,5 @@
     <activity
       android:name=".activity.PhotoEditorActivity"
       android:configChanges="orientation|keyboardHidden|screenSize" />
-
-
   </application>
 </manifest>

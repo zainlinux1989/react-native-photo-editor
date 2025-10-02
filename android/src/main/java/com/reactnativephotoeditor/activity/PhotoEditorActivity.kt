@@ -41,21 +41,18 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import com.reactnativephotoeditor.R
 import com.reactnativephotoeditor.activity.StickerFragment.StickerListener
-// import com.reactnativephotoeditor.activity.ImageCropViewManager
 import com.reactnativephotoeditor.activity.constant.ResponseCode
 import com.reactnativephotoeditor.activity.filters.FilterListener
 import com.reactnativephotoeditor.activity.filters.FilterViewAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter
 import com.reactnativephotoeditor.activity.tools.EditingToolsAdapter.OnItemSelected
 import com.reactnativephotoeditor.activity.tools.ToolType
-
-// import com.canhub.cropper.CropImageView
-
 import ja.burhanrashid52.photoeditor.*
 import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
+
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -66,10 +63,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mPropertiesBSFragment: PropertiesBSFragment? = null
   private var mShapeBSFragment: ShapeBSFragment? = null
   private var mShapeBuilder: ShapeBuilder? = null
-  // private var mCropTools: ImageCropViewManager.Companion? = null
-  // private var mCropToolsView: ImageCropViewManager? = null
-  // private var mRvCropTools: CropImageView? = null
-  private var mCropToolsPath: String? = null
   private var mStickerFragment: StickerFragment? = null
   private var mTxtCurrentTool: TextView? = null
   private var mRvTools: RecyclerView? = null
@@ -79,7 +72,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   private var mRootView: ConstraintLayout? = null
   private val mConstraintSet = ConstraintSet()
   private var mIsFilterVisible = false
-  private var mIsCropVisible = false
 
   @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,23 +82,16 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
     //intern
     val value = intent.extras
-    val value1 = intent
-    // val valueContext = value?.getBooleanExtra("context")
-    // val valueContext = applicationContext
-    // val valueContext = value?.getBooleanExtra("context")
     val path = value?.getString("path")
     val stickers =
       value?.getStringArrayList("stickers")?.plus(
         assets.list("Stickers")!!
           .map { item -> "/android_asset/Stickers/$item" }) as ArrayList<String>
-  //    println("stickers: $stickers ${stickers.size}")
-  //    for (stick in stickers) {
-  //      print("stick: $stickers")
-  //    }
-  Log.d(
-    "TEST_TAG",
-    "Verbose: more verbose than DEBUG logs __99____[$value1]_________" 
-  )
+//    println("stickers: $stickers ${stickers.size}")
+//    for (stick in stickers) {
+//      print("stick: $stickers")
+//    }
+
     mPropertiesBSFragment = PropertiesBSFragment()
     mPropertiesBSFragment!!.setPropertiesChangeListener(this)
 
@@ -116,11 +101,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //    val stream: InputStream = assets.open("image.png")
 //    val d = Drawable.createFromStream(stream, null)
     mStickerFragment!!.setData(stickers)
-
-    // mCropTools = ConstraintLayout
-    // mCropTools = ImageCropViewManager
-    mCropToolsPath = value?.getString("path")
-    // mCropTools!!.createViewInstance()
 
     mShapeBSFragment = ShapeBSFragment()
     mShapeBSFragment!!.setPropertiesChangeListener(this)
@@ -224,8 +204,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
-    // mRvCropTools = findViewById(R.id.rvCropImageView)
-    // mCropTools = findViewById(R.id.rvCropImageView)
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
@@ -400,14 +378,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         showFilter(true)
       }
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
-      ToolType.CROP -> {
-        mTxtCurrentTool!!.setText(R.string.corp_mode)
-        // mCropTools!!.createViewInstance(mCropToolsPath)
-        // mCropToolsView!!.createViewInstance()
-        showCroper(true)
-        // mCropTools!!.createViewInstance(this)
-        // mCropTools!!.getCommandsMap()
-      }
     }
   }
 
@@ -444,38 +414,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     TransitionManager.beginDelayedTransition(mRootView!!, changeBounds)
     mConstraintSet.applyTo(mRootView)
   }
-
-  fun showCroper(isVisible: Boolean) {
-    mIsCropVisible = isVisible
-    mConstraintSet.clone(mRootView)
-    Log.d(
-      "TEST_TAG",
-      "showCroper: more verbose than DEBUG logs 00____showCroper[$isVisible]___________" 
-    ) 
-    // if (isVisible) {
-      // mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.START)
-      // mConstraintSet.connect(
-      //   mRvCropTools!!.id, ConstraintSet.START,
-      //   ConstraintSet.PARENT_ID, ConstraintSet.START
-      // )
-      // mConstraintSet.connect(
-      //   mRvCropTools!!.id, ConstraintSet.END,
-      //   ConstraintSet.PARENT_ID, ConstraintSet.END
-      // )
-    // } else {
-      // mConstraintSet.connect(
-      //   mRvCropTools!!.id, ConstraintSet.START,
-      //   ConstraintSet.PARENT_ID, ConstraintSet.END
-      // )
-      // mConstraintSet.clear(mRvCropTools!!.id, ConstraintSet.END)
-    // }
-    val changeBounds = ChangeBounds()
-    changeBounds.duration = 350
-    changeBounds.interpolator = AnticipateOvershootInterpolator(1.0f)
-    TransitionManager.beginDelayedTransition(mRootView!!, changeBounds)
-    mConstraintSet.applyTo(mRootView)
-  }
-
 
   override fun onBackPressed() {
     if (mIsFilterVisible) {
