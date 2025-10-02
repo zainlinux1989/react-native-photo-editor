@@ -1,17 +1,17 @@
-# react-native-photo-editor
+# @atey70/react-native-photo-editor
 
 photo editor using native module
 
 ## Installation
 
 ```sh
-npm install react-native-photo-editor
+npm install @atey70/react-native-photo-editor
 ```
 
 ## Usage
 
 ```js
-import PhotoEditor from "react-native-photo-editor";
+import PhotoEditor from "@atey70/react-native-photo-editor";
 
 // ...
 
