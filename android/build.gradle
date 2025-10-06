@@ -8,7 +8,7 @@ buildscript {
   }
   dependencies {
     classpath('com.android.tools.build:gradle:8.13.0')
-    classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20')
+    classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
   }
 }
 
@@ -28,7 +28,7 @@ dependencies {
   // api 'com.facebook.react:react-native:+'
   // implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   // classpath( "org.jetbrains.kotlin:kotlin-stdlib:2.2.20") 
-  classpath( "org.jetbrains.kotlin:kotlin-stdlib-jdk7")
+  classpath( 'org.jetbrains.kotlin:kotlin-gradle-plugin')
   classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
   classpath( 'com.burhanrashid52:photoeditor:3.0.2')
   classpath( 'androidx.appcompat:appcompat:1.7.1')
