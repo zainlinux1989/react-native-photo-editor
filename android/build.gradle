@@ -1,33 +1,57 @@
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.1.20"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.13.0")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+         classpath( 'com.burhanrashid52:photoeditor:3.0.2')
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+apply plugin: "com.facebook.react"
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
-  // ext.kotlin_version = '2.2.20'
-  repositories {
-    google()
-    mavenCentral()
-  }
-  dependencies {
-    def appcompat_version = "1.7.1"
-    classpath('com.android.tools.build:gradle:8.13.0')
-    classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20')
-      classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
-  classpath( 'com.burhanrashid52:photoeditor:3.0.2')
-  // classpath( 'androidx.appcompat:appcompat:1.7.1')
-  implementation "androidx.appcompat:appcompat:$appcompat_version"
-  implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
-  // classpath( 'com.google.android.material:material:1.12.0')
-  // classpath( 'com.github.bumptech.glide:glide:4.12.0')
-  }
-}
+// buildscript {
+//   // ext.kotlin_version = '2.2.20'
+//   repositories {
+//     google()
+//     mavenCentral()
+//   }
+//   dependencies {
+//     def appcompat_version = "1.7.1"
+//     classpath('com.android.tools.build:gradle:8.13.0')
+//     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20')
+//       classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
+//   classpath( 'com.burhanrashid52:photoeditor:3.0.2')
+//   // classpath( 'androidx.appcompat:appcompat:1.7.1')
+//   implementation "androidx.appcompat:appcompat:$appcompat_version"
+//   implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
+//   // classpath( 'com.google.android.material:material:1.12.0')
+//   // classpath( 'com.github.bumptech.glide:glide:4.12.0')
+//   }
+// }
 
 
-allprojects {
-  repositories {
-    google()
-    mavenCentral()
-    maven { url 'https://www.jitpack.io' }
-  }
-}
+// allprojects {
+//   repositories {
+//     google()
+//     mavenCentral()
+//     maven { url 'https://www.jitpack.io' }
+//   }
+// }
 
 // def kotlin_version = getExtOrDefault('kotlinVersion')
 
