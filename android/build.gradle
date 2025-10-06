@@ -11,7 +11,7 @@ buildscript {
     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20')
       classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
   classpath( 'com.burhanrashid52:photoeditor:3.0.2')
-  // classpath( 'androidx.appcompat:appcompat:1.5.1')
+  classpath( 'androidx.appcompat:appcompat:1.7.1')
   // classpath( 'com.google.android.material:material:1.12.0')
   // classpath( 'com.github.bumptech.glide:glide:4.12.0')
   }
