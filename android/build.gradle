@@ -178,3 +178,4 @@ repositories {
     )
   }
 }
+def kotlin_version = getExtOrDefault('kotlinVer
