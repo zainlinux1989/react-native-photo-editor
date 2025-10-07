@@ -151,9 +151,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       .into(mPhotoEditorView!!.source);
   }
 
-    override fun onTouchSourceImage(event: MotionEvent) {
-    // Залиште порожнім або додайте існуючу логіку
-    }
 
   private fun showLoading(message: String) {
     mProgressDialog = ProgressDialog(this)
