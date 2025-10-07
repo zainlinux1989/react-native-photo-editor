@@ -165,10 +165,17 @@ Thanks go to these wonderful people:
 	<tbody>
 		<tr>
             <td align="center">
-                <a href="https://github.com/tuanngocptn">
-                    <img src="https://avatars.githubusercontent.com/u/22292704?v=4" width="100;" alt="tuanngocptn"/>
+                <a href="https://github.com/atey70">
+                    <img src="https://avatars.githubusercontent.com/u/127696063?v=4" width="100;" alt="atey70"/>
                     <br />
-                    <sub><b>Nick - Ngoc Pham</b></sub>
+                    <sub><b>atey70</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/gizthub">
+                    <img src="https://avatars.githubusercontent.com/u/202248831?v=4" width="100;" alt="gizthub"/>
+                    <br />
+                    <sub><b>gizthub</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -186,10 +193,10 @@ Thanks go to these wonderful people:
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/Bassiuz">
-                    <img src="https://avatars.githubusercontent.com/u/8895636?v=4" width="100;" alt="Bassiuz"/>
+                <a href="https://github.com/tuanngocptn">
+                    <img src="https://avatars.githubusercontent.com/u/22292704?v=4" width="100;" alt="tuanngocptn"/>
                     <br />
-                    <sub><b>Bas de Vaan</b></sub>
+                    <sub><b>Nick - Ngoc Pham</b></sub>
                 </a>
             </td>
 		</tr>
