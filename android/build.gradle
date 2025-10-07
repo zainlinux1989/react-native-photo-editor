@@ -178,4 +178,4 @@ repositories {
     )
   }
 }
-def kotlin_version = getExtOrDefault('kotlinVersion')
+// def kotlin_version = getExtOrDefault('kotlinVersion')
