@@ -1,2 +1,2 @@
-include ':atey70_react-native-photo-editor'
-project(':atey70_react-native-photo-editor').projectDir = new File(rootProject.projectDir, '../node_modules/atey70-react-native-photo-editor/android')
+include ':@atey70/react-native-photo-editor'
+project(':@atey70/react-native-photo-editor').projectDir = new File(rootProject.projectDir, '../node_modules/@atey70/react-native-photo-editor/android')
