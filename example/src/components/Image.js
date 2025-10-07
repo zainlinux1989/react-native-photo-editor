@@ -5,7 +5,7 @@ import {
   StyleSheet,
   ViewPropTypes,
 } from 'react-native';
-import PhotoEditor from '@atey70/react-native-photo-editor';
+import PhotoEditor from '@baronha/react-native-photo-editor';
 import PropTypes from 'prop-types';
 
 import { stickers } from '../assets/data';

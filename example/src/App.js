@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import ImagePicker from '@baronha/react-native-multiple-image-picker';
-import PhotoEditor from '@atey70/react-native-photo-editor';
+import PhotoEditor from '@baronha/react-native-photo-editor';
 
 const { width } = Dimensions.get('window');
 

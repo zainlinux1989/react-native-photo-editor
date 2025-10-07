@@ -1,153 +1,56 @@
 buildscript {
-    ext {
-        buildToolsVersion = "34.0.0"
-        minSdkVersion = 23
-        compileSdkVersion = 34
-        targetSdkVersion = 34
-        ndkVersion = "27.1.12297006"
-        kotlinVersion = "1.9.24"
-    }
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.11.0")
-        // classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
-        //  classpath( 'com.burhanrashid52:photoeditor:3.0.2')
-    }
+  // Buildscript is evaluated before everything else so we can't use getExtOrDefault
+  def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['PhotoEditor_kotlinVersion']
+
+  repositories {
+    google()
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'com.android.tools.build:gradle:4.2.2'
+    // noinspection DifferentKotlinGradleVersion
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'org.jetbrains.kotlin.android'
-// apply plugin: "com.facebook.react.rootproject"
-// apply plugin: "com.facebook.react"
-// apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android'
+
+def getExtOrDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['PhotoEditor_' + name]
+}
+
+def getExtOrIntegerDefault(name) {
+  return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['PhotoEditor_' + name]).toInteger()
+}
 
 android {
-    // namespace "com.atey70.photoeditor"
-  compileSdkVersion rootProject.ext.compileSdkVersion
-
+  compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
+  buildToolsVersion getExtOrDefault('buildToolsVersion')
   defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-    }
+    minSdkVersion 16
+    targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
+    versionCode 1
+    versionName "1.0"
+
+  }
 
   buildTypes {
-        release {
-            minifyEnabled false
-        }
+    release {
+      minifyEnabled false
     }
+  }
   lintOptions {
-      disable 'GradleCompatible'
-    }
+    disable 'GradleCompatible'
+  }
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
 }
 
-dependencies {
-      // noinspection GradleDynamicVersion
-  api 'com.facebook.react:react-native:+'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  // implementation( 'org.jetbrains.kotlin:kotlin-gradle-plugin')
-  implementation( 'androidx.constraintlayout:constraintlayout:2.0.4')
-  implementation( 'com.burhanrashid52:photoeditor:3.0.2')
-  implementation( 'androidx.appcompat:appcompat:1.7.1')
-  implementation( 'com.google.android.material:material:1.3.0')
-  implementation( 'com.github.bumptech.glide:glide:4.12.0')
-  annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-}
-
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-// buildscript {
-//   // ext.kotlin_version = '2.2.20'
-//   repositories {
-//     google()
-//     mavenCentral()
-//   }
-//   dependencies {
-//     def appcompat_version = "1.7.1"
-//     classpath('com.android.tools.build:gradle:8.13.0')
-//     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.20')
-//       classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
-//   classpath( 'com.burhanrashid52:photoeditor:3.0.2')
-//   // classpath( 'androidx.appcompat:appcompat:1.7.1')
-//   implementation "androidx.appcompat:appcompat:$appcompat_version"
-//   implementation "androidx.appcompat:appcompat-resources:$appcompat_version"
-//   // classpath( 'com.google.android.material:material:1.12.0')
-//   // classpath( 'com.github.bumptech.glide:glide:4.12.0')
-//   }
-// }
-
-
-// allprojects {
-//   repositories {
-//     google()
-//     mavenCentral()
-//     maven { url 'https://www.jitpack.io' }
-//   }
-// }
-
-// def kotlin_version = getExtOrDefault('kotlinVersion')
-
-// dependencies {
-//   // noinspection GradleDynamicVersion
-//   // api 'com.facebook.react:react-native:+'
-//   // implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-//   // classpath( "org.jetbrains.kotlin:kotlin-stdlib:2.2.20") 
-//   classpath( 'org.jetbrains.kotlin:kotlin-gradle-plugin')
-//   classpath( 'androidx.constraintlayout:constraintlayout:2.0.4')
-//   classpath( 'com.burhanrashid52:photoeditor:3.0.2')
-//   classpath( 'androidx.appcompat:appcompat:1.7.1')
-//   classpath( 'com.google.android.material:material:1.3.0')
-//   classpath( 'com.github.bumptech.glide:glide:4.12.0')
-//   annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-// }
-
-
-// def getExtOrDefault(name) {
-//   return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties['PhotoEditor_' + name]
-// }
-
-// def getExtOrIntegerDefault(name) {
-//   return rootProject.ext.has(name) ? rootProject.ext.get(name) : (project.properties['PhotoEditor_' + name]).toInteger()
-// }
-
-// android {
-//   compileSdkVersion 36
-//   buildToolsVersion "36.0.0"
-//   defaultConfig {
-//     minSdkVersion 24
-//     targetSdkVersion 36
-//     versionCode 1
-//     versionName "1.0"
-
-//   }
-// buildFeatures{
-//    dataBinding = true
-//    viewBinding = true
-// }
-//   buildTypes {
-//     release {
-//       minifyEnabled false
-//     }
-//   }
-//   lintOptions {
-//     disable 'GradleCompatible'
-//   }
-//   compileOptions {
-//     sourceCompatibility JavaVersion.VERSION_1_8
-//     targetCompatibility JavaVersion.VERSION_1_8
-//   }
-// }
-
-
 repositories {
-  maven { url 'https://jitpack.io' }
   mavenCentral()
   jcenter()
   google()
@@ -217,4 +120,17 @@ repositories {
     )
   }
 }
-// def kotlin_version = getExtOrDefault('kotlinVersion')
+
+def kotlin_version = getExtOrDefault('kotlinVersion')
+
+dependencies {
+  // noinspection GradleDynamicVersion
+  api 'com.facebook.react:react-native:+'
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+  implementation 'com.burhanrashid52:photoeditor:1.5.0'
+  implementation 'androidx.appcompat:appcompat:1.3.1'
+  implementation 'com.google.android.material:material:1.3.0'
+  implementation 'com.github.bumptech.glide:glide:4.12.0'
+  annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+}
