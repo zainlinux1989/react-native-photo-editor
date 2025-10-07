@@ -21,9 +21,9 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
-apply plugin: "com.facebook.react.rootproject"
-apply plugin: "com.facebook.react"
-
+// apply plugin: "com.facebook.react.rootproject"
+// apply plugin: "com.facebook.react"
+// apply plugin: 'kotlin-android'
 
 android {
     // namespace "com.atey70.photoeditor"
@@ -50,9 +50,9 @@ android {
 
 dependencies {
       // noinspection GradleDynamicVersion
-  // api 'com.facebook.react:react-native:+'
+  api 'com.facebook.react:react-native:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-  implementation( 'org.jetbrains.kotlin:kotlin-gradle-plugin')
+  // implementation( 'org.jetbrains.kotlin:kotlin-gradle-plugin')
   implementation( 'androidx.constraintlayout:constraintlayout:2.0.4')
   implementation( 'com.burhanrashid52:photoeditor:3.0.2')
   implementation( 'androidx.appcompat:appcompat:1.7.1')
