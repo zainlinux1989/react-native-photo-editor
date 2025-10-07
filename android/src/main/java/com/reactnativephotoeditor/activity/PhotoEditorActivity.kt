@@ -114,7 +114,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvFilters!!.adapter = mFilterViewAdapter
 
     val pinchTextScalable = intent.getBooleanExtra(PINCH_TEXT_SCALABLE_INTENT_KEY, true)
-    mPhotoEditor = PhotoEditor.Builder(this, mPhotoEditorView)
+    mPhotoEditor = PhotoEditor.Builder(this, mPhotoEditorView!!)
       .setPinchTextScalable(pinchTextScalable) // set flag to make text scalable when pinch
       .build() // build photo editor sdk
     mPhotoEditor?.setOnPhotoEditorListener(this)
@@ -150,6 +150,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 //      .placeholder(drawable)
       .into(mPhotoEditorView!!.source);
   }
+
+    override fun onTouchSourceImage(event: MotionEvent) {
+    // Залиште порожнім або додайте існуючу логіку
+    }
 
   private fun showLoading(message: String) {
     mProgressDialog = ProgressDialog(this)

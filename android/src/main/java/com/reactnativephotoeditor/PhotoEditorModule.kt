@@ -57,8 +57,5 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
         }
       }
     }
-    override fun onTouchSourceImage(event: MotionEvent) {
-    // Залиште порожнім або додайте існуючу логіку
-    }
   }
 }
