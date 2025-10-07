@@ -1,26 +1,49 @@
 buildscript {
     ext {
-        buildToolsVersion = "36.0.0"
-        minSdkVersion = 24
-        compileSdkVersion = 36
-        targetSdkVersion = 36
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 23
+        compileSdkVersion = 34
+        targetSdkVersion = 34
         ndkVersion = "27.1.12297006"
-        kotlinVersion = "2.1.20"
+        kotlinVersion = "1.9.24"
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.13.0")
+        classpath("com.android.tools.build:gradle:8.11.0")
         // classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.20")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
         //  classpath( 'com.burhanrashid52:photoeditor:3.0.2')
     }
 }
 
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: "com.facebook.react.rootproject"
 apply plugin: "com.facebook.react"
+
+
+android {
+    namespace "com.atey70.photoeditor"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+}
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
