@@ -1,0 +1,27 @@
+android {
+  compileSdkVersion 36
+  buildToolsVersion "36.0.0"
+  defaultConfig {
+    minSdkVersion 24
+    targetSdkVersion 36
+    versionCode 1
+    versionName "1.0"
+
+  }
+buildFeatures{
+   dataBinding = true
+   viewBinding = true
+}
+  buildTypes {
+    release {
+      minifyEnabled false
+    }
+  }
+  lintOptions {
+    disable 'GradleCompatible'
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
