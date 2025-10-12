@@ -21,7 +21,7 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
   @ReactMethod
   fun open(options: ReadableMap?, promise: Promise): Unit {
     this.promise = promise
-    val activity = getReactApplicationContext().currentActivity
+    val activity = currentActivity
     if (activity == null) {
       promise.reject("ACTIVITY_DOES_NOT_EXIST", "Activity doesn't exist");
       return;
