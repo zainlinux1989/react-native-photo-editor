@@ -26,7 +26,10 @@ import java.net.URI
 import java.net.URL
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class StickerFragment : BottomSheetDialogFragment() {
   private var mStickerListener: StickerListener? = null
@@ -89,9 +92,14 @@ class StickerFragment : BottomSheetDialogFragment() {
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
       val item = stickerList[position]
 
-      Glide.with(holder.itemView.context)
+      // val ctx = holder.itemView.context
+
+ context?.let {
+      Glide
+        .with(it)
         .load(item)
         .apply(
           RequestOptions()
@@ -99,18 +107,25 @@ class StickerFragment : BottomSheetDialogFragment() {
             .transform(CenterCrop())
         )
         .into(holder.imgSticker)
-
-      // натискання на стікер
-      holder.imgSticker.setOnClickListener {
-        try {
-          val inputStream: InputStream = URL(item).openStream()
-          val bitmap = BitmapFactory.decodeStream(inputStream)
-          mStickerListener?.onStickerClick(bitmap)
-        } catch (e: Exception) {
-          e.printStackTrace()
-        }
-      }
+ }
+      // // натискання на стікер
+      // holder.imgSticker.setOnClickListener {
+      //   mStickerListener?.let { listener ->
+      //     CoroutineScope(Dispatchers.IO).launch {
+      //       try {
+      //         val inputStream = URL(item).openStream()
+      //         val bitmap = BitmapFactory.decodeStream(inputStream)
+      //         withContext(Dispatchers.Main) {
+      //           listener.onStickerClick(bitmap)
+      //         }
+      //       } catch (e: Exception) {
+      //         e.printStackTrace()
+      //       }
+      //     }
+      //   }
+      // }
     }
+
 
     override fun getItemCount(): Int {
       return stickerList.size
