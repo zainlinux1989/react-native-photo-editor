@@ -79,7 +79,9 @@ class StickerFragment : BottomSheetDialogFragment() {
 
   inner class StickerAdapter :
     RecyclerView.Adapter<StickerAdapter.ViewHolder?>() {
+
     lateinit var stickerList: List<String>
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
       val view = LayoutInflater.from(parent.context).inflate(R.layout.row_sticker, parent, false)
       return ViewHolder(view)
@@ -88,13 +90,25 @@ class StickerFragment : BottomSheetDialogFragment() {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
       val item = stickerList[position]
-      context?.let {
-        Glide
-          .with(sticker -> addSticker(sticker))
-          .load(item)
-          .apply(RequestOptions.bitmapTransform(CenterCrop()))
-          .placeholder(R.drawable.ic_sticker)
-          .into(holder.imgSticker)
+
+      Glide.with(holder.itemView.context)
+        .load(item)
+        .apply(
+          RequestOptions()
+            .placeholder(R.drawable.ic_sticker)
+            .transform(CenterCrop())
+        )
+        .into(holder.imgSticker)
+
+      // натискання на стікер
+      holder.imgSticker.setOnClickListener {
+        try {
+          val inputStream: InputStream = URL(item).openStream()
+          val bitmap = BitmapFactory.decodeStream(inputStream)
+          mStickerListener?.onStickerClick(bitmap)
+        } catch (e: Exception) {
+          e.printStackTrace()
+        }
       }
     }
 
