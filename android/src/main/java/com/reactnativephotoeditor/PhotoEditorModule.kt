@@ -21,12 +21,13 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
   @ReactMethod
   fun open(options: ReadableMap?, promise: Promise): Unit {
     this.promise = promise
-    val activity = currentActivity
+    val activity = reactApplicationContext.currentActivity
     if (activity == null) {
       promise.reject("ACTIVITY_DOES_NOT_EXIST", "Activity doesn't exist");
       return;
     }
     val intent = Intent(context, PhotoEditorActivity::class.java)
+    // val intent = Intent(activity, EditorActivity::class.java)
     context.addActivityEventListener(mActivityEventListener)
 
     val path = options?.getString("path")
@@ -35,7 +36,8 @@ class PhotoEditorModule(reactContext: ReactApplicationContext) : ReactContextBas
     intent.putExtra("path", path)
     intent.putExtra("stickers", stickers.toArrayList())
 
-    activity.startActivityForResult(intent, EDIT_SUCCESSFUL)
+    activity?.startActivityForResult(intent, EDIT_SUCCESSFUL)
+    // reactApplicationContext.currentActivity?.startActivityForResult(intent, REQUEST_CODE)
   }
 
   private val mActivityEventListener: ActivityEventListener = object : BaseActivityEventListener() {

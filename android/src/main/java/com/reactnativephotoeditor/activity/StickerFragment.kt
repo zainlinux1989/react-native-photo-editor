@@ -24,6 +24,9 @@ import com.reactnativephotoeditor.R
 import java.io.InputStream
 import java.net.URI
 import java.net.URL
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.request.RequestOptions
+
 
 class StickerFragment : BottomSheetDialogFragment() {
   private var mStickerListener: StickerListener? = null
@@ -87,9 +90,9 @@ class StickerFragment : BottomSheetDialogFragment() {
       val item = stickerList[position]
       context?.let {
         Glide
-          .with(it)
+          .with(sticker -> addSticker(sticker))
           .load(item)
-          .centerCrop()
+          .apply(RequestOptions.bitmapTransform(CenterCrop()))
           .placeholder(R.drawable.ic_sticker)
           .into(holder.imgSticker)
       }
