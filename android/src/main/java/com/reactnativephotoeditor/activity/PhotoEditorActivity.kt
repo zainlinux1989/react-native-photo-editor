@@ -233,7 +233,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
-  override fun onTouchSourceImage(event: MotionEvent) {
+  override fun onTouchSourceImage((viewType: ViewType) {
       // Нічого не робимо, або лог:
       Log.d("PhotoEditorActivity", "Touch event: $event")
   }
