@@ -54,7 +54,7 @@ import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
-
+import android.view.MotionEvent
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -233,10 +233,10 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
-  override fun onTouchSourceImage(viewType: ViewType) {
+  override fun onTouchSourceImage(event: MotionEvent) {
     Log.d(
       TAG,
-        "onTouchSourceImage() called with: viewType = [$viewType]"
+        "onTouchSourceImage() called with: viewType = [$event]"
     )
   }
 
