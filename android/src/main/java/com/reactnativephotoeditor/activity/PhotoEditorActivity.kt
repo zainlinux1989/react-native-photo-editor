@@ -233,12 +233,12 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
-  // override fun onTouchSourceImage(viewType: ViewType) {
-  //   Log.d(
-  //     TAG,
-  //       "onTouchSourceImage() called with: viewType = [$viewType]"
-  //   )
-  // }
+  override fun onTouchSourceImage(event: MotionEvent) {
+    Log.d(
+      TAG,
+        "onTouchSourceImage() called with: viewType = [$event]"
+    )
+  }
 
   override fun onStartViewChangeListener(viewType: ViewType) {
     Log.d(TAG, "onStartViewChangeListener() called with: viewType = [$viewType]")
@@ -366,7 +366,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       ToolType.SHAPE -> {
         mPhotoEditor!!.setBrushDrawingMode(true)
         mShapeBuilder = ShapeBuilder()
-        mPhotoEditor!!.setShape(mShapeBuilder)
+        mPhotoEditor!!.setShape(mShapeBuilder!!)
         mTxtCurrentTool!!.setText(R.string.label_shape)
         showBottomSheetDialogFragment(mShapeBSFragment)
       }
@@ -375,7 +375,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         textEditorDialogFragment.setOnTextEditorListener { inputText: String?, colorCode: Int ->
           val styleBuilder = TextStyleBuilder()
           styleBuilder.withTextColor(colorCode)
-          mPhotoEditor!!.addText(inputText, styleBuilder)
+          mPhotoEditor!!.addText(inputText!!, styleBuilder)
           mTxtCurrentTool!!.setText(R.string.label_text)
         }
       }
