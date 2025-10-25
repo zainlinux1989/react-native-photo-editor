@@ -214,7 +214,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     textEditorDialogFragment.setOnTextEditorListener { inputText: String?, newColorCode: Int ->
       val styleBuilder = TextStyleBuilder()
       styleBuilder.withTextColor(newColorCode)
-      mPhotoEditor!!.editText(rootView, inputText, styleBuilder)
+      mPhotoEditor!!.editText(rootView, inputText!!, styleBuilder)
       mTxtCurrentTool!!.setText(R.string.label_text)
     }
   }
@@ -235,7 +235,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
 
   override fun onTouchSourceImage(event: MotionEvent) {
       // Нічого не робимо, або лог:
-      // Log.d("PhotoEditorActivity", "Touch event: $event")
+      Log.d("PhotoEditorActivity", "Touch event: $event")
   }
 
   override fun onStartViewChangeListener(viewType: ViewType) {
@@ -286,7 +286,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         override fun onSuccess(@NonNull imagePath: String) {
           hideLoading()
           val intent = Intent()
-          intent.putExtra("path", imagePath!!)
+          intent.putExtra("path", imagePath)
           setResult(ResponseCode.RESULT_OK, intent)
           finish()
         }
