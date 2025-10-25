@@ -233,6 +233,11 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
+  override fun onTouchSourceImage(event: MotionEvent) {
+      // Нічого не робимо, або лог:
+      // Log.d("PhotoEditorActivity", "Touch event: $event")
+  }
+
   override fun onStartViewChangeListener(viewType: ViewType) {
     Log.d(TAG, "onStartViewChangeListener() called with: viewType = [$viewType]")
   }
@@ -281,7 +286,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         override fun onSuccess(@NonNull imagePath: String) {
           hideLoading()
           val intent = Intent()
-          intent.putExtra("path", imagePath)
+          intent.putExtra("path", imagePath!!)
           setResult(ResponseCode.RESULT_OK, intent)
           finish()
         }
