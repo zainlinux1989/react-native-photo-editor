@@ -16,7 +16,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.reactnativephotoeditor.R;
 
 import ja.burhanrashid52.photoeditor.shape.ShapeType;
-import ja.burhanrashid52.photoeditor.shape.ShapeBuilder;
 
 public class ShapeBSFragment extends BottomSheetDialogFragment implements SeekBar.OnSeekBarChangeListener {
 
@@ -57,13 +56,13 @@ public class ShapeBSFragment extends BottomSheetDialogFragment implements SeekBa
         // shape picker
         shapeGroup.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.lineRadioButton) {
-                mProperties.onShapePicked(ShapeBuilder().type(ShapeType.Shape.LINE));
+                mProperties.onShapePicked(ShapeType.LINE);
             } else if (checkedId == R.id.ovalRadioButton) {
-                mProperties.onShapePicked(ShapeBuilder().type(ShapeType.Shape.OVAL));
+                mProperties.onShapePicked(ShapeType.OVAL);
             } else if (checkedId == R.id.rectRadioButton) {
-                mProperties.onShapePicked(ShapeBuilder().type(ShapeType.Shape.RECTANGLE));
+                mProperties.onShapePicked(ShapeType.RECTANGLE);
             } else {
-                mProperties.onShapePicked(ShapeBuilder().type(ShapeType.Shape.BRUSH));
+                mProperties.onShapePicked(ShapeType.BRUSH);
             }
         });
 

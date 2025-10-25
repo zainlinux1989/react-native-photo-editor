@@ -52,9 +52,7 @@ import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.request.RequestOptions
-import android.view.MotionEvent
+
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
   PropertiesBSFragment.Properties, ShapeBSFragment.Properties, StickerListener,
@@ -214,7 +212,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     textEditorDialogFragment.setOnTextEditorListener { inputText: String?, newColorCode: Int ->
       val styleBuilder = TextStyleBuilder()
       styleBuilder.withTextColor(newColorCode)
-      mPhotoEditor!!.editText(rootView, inputText!!, styleBuilder)
+      mPhotoEditor!!.editText(rootView, inputText, styleBuilder)
       mTxtCurrentTool!!.setText(R.string.label_text)
     }
   }
@@ -230,13 +228,6 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     Log.d(
       TAG,
       "onRemoveViewListener() called with: viewType = [$viewType], numberOfAddedViews = [$numberOfAddedViews]"
-    )
-  }
-
-  override fun onTouchSourceImage(event: MotionEvent) {
-    Log.d(
-      TAG,
-        "onTouchSourceImage() called with: viewType = [$event]"
     )
   }
 
@@ -366,7 +357,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       ToolType.SHAPE -> {
         mPhotoEditor!!.setBrushDrawingMode(true)
         mShapeBuilder = ShapeBuilder()
-        mPhotoEditor!!.setShape(mShapeBuilder!!)
+        mPhotoEditor!!.setShape(mShapeBuilder)
         mTxtCurrentTool!!.setText(R.string.label_shape)
         showBottomSheetDialogFragment(mShapeBSFragment)
       }
@@ -375,7 +366,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         textEditorDialogFragment.setOnTextEditorListener { inputText: String?, colorCode: Int ->
           val styleBuilder = TextStyleBuilder()
           styleBuilder.withTextColor(colorCode)
-          mPhotoEditor!!.addText(inputText!!, styleBuilder)
+          mPhotoEditor!!.addText(inputText, styleBuilder)
           mTxtCurrentTool!!.setText(R.string.label_text)
         }
       }
