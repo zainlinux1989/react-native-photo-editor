@@ -233,7 +233,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
-  override fun onTouchSourceImage((viewType: ViewType) {
+  override fun onTouchSourceImage(viewType: ViewType) {
       Log.d(
         TAG,
         "PhotoEditorActivity", "Touch event: $event")
