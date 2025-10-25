@@ -234,8 +234,9 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
   }
 
   override fun onTouchSourceImage((viewType: ViewType) {
-      // Нічого не робимо, або лог:
-      Log.d("PhotoEditorActivity", "Touch event: $event")
+      Log.d(
+        TAG,
+        "PhotoEditorActivity", "Touch event: $event")
   }
 
   override fun onStartViewChangeListener(viewType: ViewType) {
