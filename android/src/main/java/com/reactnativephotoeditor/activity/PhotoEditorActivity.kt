@@ -3,6 +3,7 @@ package com.reactnativephotoeditor.activity
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -14,10 +15,10 @@ import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AnticipateOvershootInterpolator
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.NonNull
@@ -52,6 +53,8 @@ import ja.burhanrashid52.photoeditor.PhotoEditor.OnSaveListener
 import ja.burhanrashid52.photoeditor.shape.ShapeBuilder
 import ja.burhanrashid52.photoeditor.shape.ShapeType
 import java.io.File
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 
 open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, View.OnClickListener,
@@ -185,6 +188,24 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
+    private fun getNavigationBarHeight(context: Context): Int {
+    val resourceId = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    return if (resourceId > 0) {
+      context.resources.getDimensionPixelSize(resourceId)
+    } else {
+      0
+    }
+  }
+
+  private fun applyRootBottomPadding(root: View, spacingPx: Int) {
+    root.setPadding(
+      root.paddingLeft,
+      root.paddingTop,
+      root.paddingRight,
+      root.paddingBottom + spacingPx 
+    )
+  }
+
   private fun initViews() {
     //REDO
     val imgRedo: ImageView = findViewById(R.id.imgRedo)
@@ -205,6 +226,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     mRvTools = findViewById(R.id.rvConstraintTools)
     mRvFilters = findViewById(R.id.rvFilterView)
     mRootView = findViewById(R.id.rootView)
+    applyRootBottomPadding(mRootView as ConstraintLayout, getNavigationBarHeight(this))
   }
 
   override fun onEditTextChangeListener(rootView: View, text: String, colorCode: Int) {
