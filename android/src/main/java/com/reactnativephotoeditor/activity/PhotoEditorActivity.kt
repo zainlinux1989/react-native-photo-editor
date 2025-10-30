@@ -188,7 +188,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
     )
   }
 
-    private fun getNavigationBarHeight(context: Context): Int {
+  private fun getNavigationBarHeight(context: Context): Int {
     val resourceId = context.resources.getIdentifier("navigation_bar_height", "dimen", "android")
     return if (resourceId > 0) {
       context.resources.getDimensionPixelSize(resourceId)
@@ -202,7 +202,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       root.paddingLeft,
       root.paddingTop,
       root.paddingRight,
-      root.paddingBottom + spacingPx 
+      root.paddingBottom + spacingPx
     )
   }
 
@@ -267,12 +267,15 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
       R.id.imgUndo -> {
         mPhotoEditor!!.undo()
       }
+
       R.id.imgRedo -> {
         mPhotoEditor!!.redo()
       }
+
       R.id.btnSave -> {
         saveImage()
       }
+
       R.id.imgClose -> {
         onBackPressed()
       }
@@ -314,7 +317,8 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
             mPhotoEditorView?.let {
               val snackBar = Snackbar.make(
                 it, R.string.save_error,
-                Snackbar.LENGTH_SHORT)
+                Snackbar.LENGTH_SHORT
+              )
               snackBar.setBackgroundTint(Color.WHITE)
               snackBar.setActionTextColor(Color.BLACK)
               snackBar.setAction("Ok", null).show()
@@ -383,6 +387,7 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
         mTxtCurrentTool!!.setText(R.string.label_shape)
         showBottomSheetDialogFragment(mShapeBSFragment)
       }
+
       ToolType.TEXT -> {
         val textEditorDialogFragment = TextEditorDialogFragment.show(this)
         textEditorDialogFragment.setOnTextEditorListener { inputText: String?, colorCode: Int ->
@@ -392,14 +397,17 @@ open class PhotoEditorActivity : AppCompatActivity(), OnPhotoEditorListener, Vie
           mTxtCurrentTool!!.setText(R.string.label_text)
         }
       }
+
       ToolType.ERASER -> {
         mPhotoEditor!!.brushEraser()
         mTxtCurrentTool!!.setText(R.string.label_eraser_mode)
       }
+
       ToolType.FILTER -> {
         mTxtCurrentTool!!.setText(R.string.label_filter)
         showFilter(true)
       }
+
       ToolType.STICKER -> showBottomSheetDialogFragment(mStickerFragment)
     }
   }
